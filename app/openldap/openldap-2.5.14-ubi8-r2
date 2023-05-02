@@ -3,7 +3,7 @@
 # All rights reserved.
 
 ### phase01-compiler ###
-FROM redhat/ubi8-minimal:8.6 as compiler
+FROM redhat/ubi8-minimal:8.7 as compiler
 
 ARG TARGETARCH
 ARG JAVA_VERSION=1.8.0
@@ -59,7 +59,7 @@ RUN microdnf install -y $DNF_PKGS && \
     make install $LDAP_HOME/etc/openldap/pqchecker
 
 ### phase02-TLS-configurator ###
-FROM redhat/ubi8-minimal:8.6 as configurator
+FROM redhat/ubi8-minimal:8.7 as configurator
 
 ARG DNF_PKGS="openssl"
 ARG CERTS_HOME=/opt/certs
@@ -80,13 +80,13 @@ RUN microdnf install -y $DNF_PKGS && \
     chmod 644 $CERTS_HOME/*
 
 ### phase03-OpenLDAP image ###
-FROM redhat/ubi8-minimal:8.6
+FROM redhat/ubi8-minimal:8.7
 
 MAINTAINER laineil
 
 ARG TARGETARCH
 
-LABEL framework=openldap-2.5.14 release=r1 date=2305 arch=$TARGETARCH
+LABEL framework=openldap-2.5.14 release=r2 date=2305 arch=$TARGETARCH
 
 ARG TIMEZONE=Asia/Taipei
 ARG DNF_PKGS="glibc-langpack-en libtool-ltdl shadow-utils"
