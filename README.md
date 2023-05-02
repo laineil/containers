@@ -38,7 +38,7 @@ $ docker build -t laineil/[app_name] -f [dockerfile_choose] .
 
 ## Vulnerability Scan
 
-As part of the release process, use [Snyk](https://app.snyk.io/) to scan and Analyze vulnerabilities.
+As part of the release process, use [Snyk](https://app.snyk.io/) to scan and analyze vulnerabilities.
 
 ## Issues and Contributing
 
