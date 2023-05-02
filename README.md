@@ -46,6 +46,6 @@ To improve app performance, you can either create an [issue](https://github.com/
 
 ## License Agreement
 
-*BSD 3-Clause License*  
-*Copyright (c) 2023, Laineil*  
-*All rights reserved.*
+BSD 3-Clause License  
+Copyright (c) 2023, Laineil  
+All rights reserved.
