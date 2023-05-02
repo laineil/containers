@@ -16,7 +16,7 @@ Some key tips about the laineil container images:
 
 Here are a few methods for acquiring an image.
 
-- The recommended way to get any of the Laineil Images is to pull the prebuilt image from the [Docker Hub Registry](https://hub.docker.com/r/laineil/).
+- The recommended way to get any of the laineil container images is to pull the prebuilt image from the [Docker Hub Registry](https://hub.docker.com/r/laineil/).
 
 ```bash
 $ docker pull laineil/[app_name]
@@ -36,9 +36,9 @@ $ cd laineil/[app_name]
 $ docker build -t laineil/[app_name] -f [dockerfile_choose] .
 ```
 
-## Vulnerability Scan
+## Vulnerability scan
 
-As part of the release process, use [Snyk](https://app.snyk.io/) to scan and analyze vulnerabilities.
+As part of the release process, use [snyk](https://app.snyk.io/) to scan and analyze vulnerabilities.
 
 ## Issues and Contributing
 
