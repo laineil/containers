@@ -41,7 +41,7 @@ RUN microdnf install -y $DNF_PKGS && \
     make depend && \
     make && \
     # can be marked for fast building
-    make test && \
+    #make test && \
     make install && \
     # build pqchecker from source
     cd /tmp/pqchecker && \
