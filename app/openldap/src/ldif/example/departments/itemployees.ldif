@@ -1,0 +1,9 @@
+# itemployees
+dn: cn=itemployees,ou=it,ou=departments,dc=example,dc=org
+objectClass: groupOfNames
+objectClass: extensibleObject
+cn: itemployees
+gidNumber: 31102
+description: it employees
+member: uid=user03,ou=users,dc=example,dc=org
+member: uid=user04,ou=users,dc=example,dc=org

@@ -1,0 +1,25 @@
+# svc users password policy
+dn: cn=svc,ou=pwpolicies,dc=example,dc=org
+objectClass: pwdPolicy
+objectClass: pwdPolicyChecker
+objectClass: person
+objectClass: top
+cn: svc
+pwdAllowUserChange: TRUE
+pwdAttribute: userPassword
+pwdCheckModule: pqchecker.so
+pwdCheckQuality: 2
+pwdExpireWarning: 0
+pwdFailureCountInterval: 0
+pwdGraceAuthNLimit: 0
+pwdInHistory: 5
+pwdLockout: TRUE
+pwdLockoutDuration: 300
+pwdMaxAge: 0
+pwdMaxFailure: 5
+pwdMinAge: 0
+pwdMinLength: 8
+pwdMustChange: FALSE
+pwdSafeModify: FALSE
+pwdReset: FALSE
+sn: password policy

@@ -1,0 +1,8 @@
+# salesmanagers
+dn: cn=salesmanagers,ou=sales,ou=departments,dc=example,dc=org
+objectClass: groupOfNames
+objectClass: extensibleObject
+cn: salesmanagers
+gidNumber: 31301
+description: sales managers
+member: uid=user08,ou=users,dc=example,dc=org

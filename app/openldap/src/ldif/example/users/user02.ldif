@@ -1,0 +1,35 @@
+##############
+### user02 ###
+##############
+dn: uid=user02,ou=users,dc=example,dc=org
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+### person ###
+# common name
+cn: user02
+# surname
+sn: demo
+# password is demopw
+userPassword: {SSHA}4avrv4jiGa1kfTlyrRRSSb4ZR8xWsqG/
+### organizationalPerson ###
+ou: users
+l: Taipei
+### inetOrgPerson ###
+displayName: demo user02
+givenName: user02
+mail: user02@example.org
+o: example org
+uid: user02
+### posixAccount ###
+uidNumber: 30002
+gidNumber: 30101
+homedirectory: /home/user02
+loginshell: /bin/bash
+### shadowAccount ###
+shadowLastChange: 0
+shadowMin: 0
+shadowMax: 99999
+shadowWarning: 7

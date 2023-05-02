@@ -1,0 +1,9 @@
+# admins group
+dn: cn=admins,ou=groups,dc=example,dc=org
+objectClass: groupOfNames
+objectClass: extensibleObject
+cn: admins
+gidNumber: 30101
+description: admins group
+member: uid=user01,ou=users,dc=example,dc=org
+member: uid=user02,ou=users,dc=example,dc=org

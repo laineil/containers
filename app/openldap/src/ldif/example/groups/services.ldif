@@ -1,0 +1,8 @@
+# services group
+dn: cn=services,ou=groups,dc=example,dc=org
+objectClass: groupOfNames
+cn: services
+description: services group
+ou: groups
+member: uid=svc01,ou=users,dc=example,dc=org
+member: uid=svc02,ou=users,dc=example,dc=org

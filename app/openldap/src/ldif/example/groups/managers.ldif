@@ -1,0 +1,11 @@
+# managers group
+dn: cn=managers,ou=groups,dc=example,dc=org
+objectClass: groupOfNames
+objectClass: extensibleObject
+cn: managers
+gidNumber: 30201
+description: managers group
+member: uid=user01,ou=users,dc=example,dc=org
+member: uid=user02,ou=users,dc=example,dc=org
+member: uid=user05,ou=users,dc=example,dc=org
+member: uid=user08,ou=users,dc=example,dc=org

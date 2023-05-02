@@ -1,0 +1,23 @@
+#############
+### svc01 ###
+#############
+dn: uid=svc01,ou=users,dc=example,dc=org
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+### person ###
+# common name
+cn: svc01
+# surname
+sn: service
+# password is Svc@123
+userPassword: {SSHA}EQBqupnEWoY0ehySMGs7bhFjT25AvASe
+### organizationalPerson ###
+ou: users
+l: Taipei
+### inetOrgPerson ###
+displayName: service account01
+givenName: svc01
+mail: svc01@example.org
+o: example org
+uid: svc01

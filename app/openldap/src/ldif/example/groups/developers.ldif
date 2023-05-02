@@ -1,0 +1,9 @@
+# developers group
+dn: cn=developers,ou=groups,dc=example,dc=org
+objectClass: groupOfNames
+objectClass: extensibleObject
+cn: developers
+gidNumber: 30102
+description: developers group
+member: uid=user03,ou=users,dc=example,dc=org
+member: uid=user04,ou=users,dc=example,dc=org

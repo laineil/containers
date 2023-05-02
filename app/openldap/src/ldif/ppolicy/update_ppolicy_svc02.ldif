@@ -1,0 +1,5 @@
+# svc01 user update password policy
+dn: uid=svc02,ou=users,dc=example,dc=org
+changetype: modify
+replace: pwdPolicySubentry
+pwdPolicySubentry: cn=svc,ou=pwpolicies,dc=example,dc=org

@@ -1,0 +1,22 @@
+# departments
+dn: ou=departments,dc=example,dc=org
+objectClass: organizationalUnit
+ou: departments
+
+# IT departments
+dn: ou=it,ou=departments,dc=example,dc=org
+objectClass: organizationalUnit
+ou: it
+ou: departments
+
+# HR departments
+dn: ou=hr,ou=departments,dc=example,dc=org
+objectClass: organizationalUnit
+ou: hr
+ou: departments
+
+# Sales departments
+dn: ou=sales,ou=departments,dc=example,dc=org
+objectClass: organizationalUnit
+ou: sales
+ou: departments

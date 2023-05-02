@@ -1,0 +1,8 @@
+# Add indexes
+dn: olcDatabase={1}mdb,cn=config
+changetype:  modify
+replace: olcDbIndex
+olcDbIndex: objectClass eq
+olcDbIndex: uid eq
+olcDbIndex: memberOf eq
+olcDbIndex: cn eq

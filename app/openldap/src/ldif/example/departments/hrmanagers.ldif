@@ -1,0 +1,8 @@
+# hrmanagers
+dn: cn=hrmanagers,ou=hr,ou=departments,dc=example,dc=org
+objectClass: groupOfNames
+objectClass: extensibleObject
+cn: hrmanagers
+gidNumber: 31201
+description: hr managers
+member: uid=user05,ou=users,dc=example,dc=org

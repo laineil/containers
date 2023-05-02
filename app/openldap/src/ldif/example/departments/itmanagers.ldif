@@ -1,0 +1,9 @@
+# itmanagers
+dn: cn=itmanagers,ou=it,ou=departments,dc=example,dc=org
+objectClass: groupOfNames
+objectClass: extensibleObject
+cn: itmanagers
+gidNumber: 31101
+description: it managers
+member: uid=user01,ou=users,dc=example,dc=org
+member: uid=user02,ou=users,dc=example,dc=org

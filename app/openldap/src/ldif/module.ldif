@@ -1,0 +1,5 @@
+# enable module
+dn: cn=module,cn=config
+objectClass: olcModuleList
+cn: module
+olcModulePath: /opt/openldap/libexec/openldap

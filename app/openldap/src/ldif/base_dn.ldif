@@ -1,0 +1,11 @@
+# base dn
+dn: dc=example,dc=org
+objectClass: dcObject
+objectClass: organization
+o: example
+
+# admin
+dn: cn=admin,dc=example,dc=org
+objectClass: organizationalRole
+cn: admin
+description: LDAP Admin

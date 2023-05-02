@@ -1,0 +1,13 @@
+# employees group
+dn: cn=employees,ou=groups,dc=example,dc=org
+objectClass: groupOfNames
+objectClass: extensibleObject
+cn: employees
+gidNumber: 30202
+description: employees group
+member: uid=user03,ou=users,dc=example,dc=org
+member: uid=user04,ou=users,dc=example,dc=org
+member: uid=user06,ou=users,dc=example,dc=org
+member: uid=user07,ou=users,dc=example,dc=org
+member: uid=user09,ou=users,dc=example,dc=org
+member: uid=user10,ou=users,dc=example,dc=org

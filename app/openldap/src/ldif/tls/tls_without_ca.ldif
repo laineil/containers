@@ -1,0 +1,12 @@
+# enable tls without ca
+dn: cn=config
+changetype: modify
+# Support TLSv1.2 or better
+replace: olcTLSProtocolMin
+olcTLSProtocolMin: 3.3
+-
+replace: olcTLSCertificateFile
+olcTLSCertificateFile: /opt/certs/server.crt
+-
+replace: olcTLSCertificateKeyFile
+olcTLSCertificateKeyFile: /opt/certs/server.key

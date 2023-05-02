@@ -1,0 +1,4 @@
+# password policies
+dn: ou=pwpolicies,dc=example,dc=org
+objectClass: organizationalUnit
+ou: pwpolicies
