@@ -44,7 +44,7 @@ As part of the release process, use [Snyk](https://app.snyk.io/) to scan and Ana
 
 To improve app performance, you can either create an [issue](https://github.com/laineil/containers/issues/new/choose) or submit a [pull request](https://github.com/laineil/containers/pulls).
 
-## License Agreements
+## License Agreement
 
 *BSD 3-Clause License*  
 *Copyright (c) 2023, Laineil*  
