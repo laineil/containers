@@ -108,6 +108,7 @@ ENV PATH=$LDAP_HOME/bin:$LDAP_HOME/sbin:$LDAP_HOME/libexec:$SCRIPT_DEST:$PATH
 USER root
 
 COPY --from=configurator $PHASE_SRC $PHASE_SRC
+COPY --chown=0:0 --chmod=755 $SCRIPT_SRC/ $SCRIPT_DEST/
 
 RUN unlink /etc/localtime && \
     ln -s /usr/share/zoneinfo/$TIMEZONE /etc/localtime && \
@@ -119,7 +120,6 @@ RUN unlink /etc/localtime && \
 
 USER $LDAP_USER
 
-COPY --chown=$LDAP_UID:0 --chmod=755 $SCRIPT_SRC $SCRIPT_DEST
 COPY --chown=$LDAP_USER:$LDAP_USER $LDAP_LDIF_SRC $LDAP_LDIF_DEST
 
 WORKDIR $HOME
