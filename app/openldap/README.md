@@ -1,5 +1,3 @@
-
-
 [![Docker Pulls](https://img.shields.io/docker/pulls/laineil/openldap)](https://hub.docker.com/r/laineil/openldap) [![Docker Image Size (latest by date)](https://img.shields.io/docker/image-size/laineil/openldap?sort=date)](https://hub.docker.com/r/laineil/openldap/tags) [![Docker Image Version (latest by date)](https://img.shields.io/docker/v/laineil/openldap?sort=date)](https://hub.docker.com/r/laineil/openldap/tags)
 
 ## About OpenLDAP
@@ -88,7 +86,7 @@ $ docker run -d \
 laineil/openldap:[tag]
 
 # To use LDAP with TLS, ensure that LDAP_TLS is enabled.
-# [your_certs_folder] must contains rootca.crt, server.crt, server.key ( certificate name must match ).
+# [your_certs_folder] must contains rootca.crt, server.crt, server.key (certificate name must match).
 # Make sure the certificate files within [your_certs_folder] have permission 644.
 ```
 
@@ -153,26 +151,26 @@ $ docker volume rm ldap_volume
 
 | Fcn                         | ID                         | PWD        |
 | :-------------------------- | :------------------------- | :--------- |
-| Frontend ( *config* ) Admin | cn=admin,cn=config         | Config@123 |
-| Backend ( *mdb* ) Admin     | cn=admin,dc=example,dc=org | Admin@123  |
+| Frontend (**config**) Admin | cn=admin,cn=config         | Config@123 |
+| Backend (**mdb**) Admin     | cn=admin,dc=example,dc=org | Admin@123  |
 
-- Users ( ou=users )
+- Users (ou=users)
 
 | Fcn              | ID                                      | PWD     |
 | :--------------- | :-------------------------------------- | :------ |
 | Service Accounts | uid=svc01-02,ou=users,dc=example,dc=org | Svc@123 |
 | General Users    | user01-10,ou=users,dc=example,dc=org    | demopw  |
 
-- Groups ( ou=groups )
+- Groups (ou=groups)
 
-| Fcn                              | Goup                                    | User      |
-| :------------------------------- | :-------------------------------------- | --------- |
-| Service Groups ( groupOfNames )  | cn=svcgp,ou=groups,dc=example,dc=org    | svc01-02  |
-| General Groups 01 ( posixGroup ) | gid=group01,ou=groups,dc=example,dc=org | user01-02 |
-| General Groups 02 ( posixGroup ) | gid=group02,ou=groups,dc=example,dc=org | user03-04 |
-| General Groups 03 ( posixGroup ) | gid=group03,ou=groups,dc=example,dc=org | user05-06 |
+| Fcn                            | Goup                                    | User      |
+| :----------------------------- | :-------------------------------------- | --------- |
+| Service Groups (groupOfNames)  | cn=svcgp,ou=groups,dc=example,dc=org    | svc01-02  |
+| General Groups 01 (posixGroup) | gid=group01,ou=groups,dc=example,dc=org | user01-02 |
+| General Groups 02 (posixGroup) | gid=group02,ou=groups,dc=example,dc=org | user03-04 |
+| General Groups 03 (posixGroup) | gid=group03,ou=groups,dc=example,dc=org | user05-06 |
 
-- Departments ( ou=departments )
+- Departments (ou=departments)
 
 | Fcn             | Departments                                              | User      |
 | :-------------- | :------------------------------------------------------- | --------- |
