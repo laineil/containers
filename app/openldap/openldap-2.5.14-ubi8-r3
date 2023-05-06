@@ -110,7 +110,9 @@ USER root
 COPY --from=configurator $PHASE_SRC $PHASE_SRC
 COPY --chown=0:0 --chmod=755 $SCRIPT_SRC/ $SCRIPT_DEST/
 
-RUN unlink /etc/localtime && \
+RUN microdnf update tzdata -y && \
+    microdnf reinstall tzdata -y && \
+    unlink /etc/localtime && \
     ln -s /usr/share/zoneinfo/$TIMEZONE /etc/localtime && \
     microdnf install -y $DNF_PKGS && \
     microdnf clean all && \
