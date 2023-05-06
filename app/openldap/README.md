@@ -67,8 +67,8 @@ Here are a few methods for running a container.
 $ docker run -d \
 --name ldap_app \
 -v ldap_volume:/volume/openldap \
--p [your_expose_port]:1389 \
--p [your_expose_port]:1636 \
+-p [expose_port]:1389 \
+-p [expose_port]:1636 \
 laineil/openldap:[tag]
 ```
 
@@ -79,15 +79,15 @@ laineil/openldap:[tag]
 $ docker run -d \
 --name ldap_app \
 -v ldap_volume:/volume/openldap \
--v [your_certs_path]:/opt/certs:ro \
--p [your_expose_port]:1389 \
--p [your_expose_port]:1636 \
+-v [certs_path]:/opt/certs:ro \
+-p [expose_port]:1389 \
+-p [expose_port]:1636 \
 -e LDAP_TLS=enable \
 laineil/openldap:[tag]
 
 # To use LDAP with TLS, ensure that LDAP_TLS is enabled.
-# [your_certs_folder] must contains rootca.crt, server.crt, server.key (certificate name must match).
-# Make sure the certificate files within [your_certs_folder] have permission 644.
+# [certs_folder] must contains rootca.crt, server.crt, server.key (certificate name must match).
+# Make sure the certificate files within [certs_folder] have permission 644.
 ```
 
 - Recommended Examples
