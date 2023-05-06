@@ -85,13 +85,13 @@ LABEL framework=openldap-2.5.14 release=r2 date=2305 arch=$TARGETARCH
 ARG TIMEZONE=Asia/Taipei
 ARG DNF_PKGS="glibc-langpack-en libtool-ltdl shadow-utils"
 ARG PHASE_SRC=/opt
-ARG HOME=/home/$LDAP_USER
 ARG LDAP_CONF=/volume/openldap/slapd.d
 ARG LDAP_DATA=/volume/openldap/data
 ARG LDAP_UID=1000
 ARG LDAP_USER=ldap
 ARG LDAP_LDIF_SRC=src/ldif
 ARG LDAP_LDIF_DEST=/tmp/ldif
+ARG HOME=/home/$LDAP_USER
 ARG SCRIPT_SRC=src/script
 ARG SCRIPT_DEST=/opt/script
 
