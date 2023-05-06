@@ -65,7 +65,7 @@ Here are a few methods for running a container.
 
 ```bash
 $ docker run -d \
---name ldaptest \
+--name ldap_app \
 -v ldap_volume:/volume/openldap \
 -p [your_expose_port]:1389 \
 -p [your_expose_port]:1636 \
@@ -77,7 +77,7 @@ laineil/openldap:[tag]
 
 ```bash
 $ docker run -d \
---name ldaptest \
+--name ldap_app \
 -v ldap_volume:/volume/openldap \
 -v [your_certs_path]:/opt/certs:ro \
 -p [your_expose_port]:1389 \
@@ -94,7 +94,7 @@ laineil/openldap:[tag]
 
 ```bash
 $ docker run -d \
---name ldaptest \
+--name ldap_app \
 -v ldap_volume:/volume/openldap \
 -p 389:1389 \
 -p 636:1636 \
@@ -122,7 +122,7 @@ $ ldapsearch -x -H ldaps://[server_ip]:636 -D "cn=admin,dc=example,dc=org" -w Ad
 ## Logging
 
 ```bash
-$ docker logs ldaptest
+$ docker logs ldap_app
 ```
 
 ## Remove
@@ -130,13 +130,13 @@ $ docker logs ldaptest
 - Stop container
 
 ```bash
-$ docker container stop ldaptest
+$ docker container stop ldap_app
 ```
 
 - Remove container
 
 ```bash
-$ docker container rm ldaptest
+$ docker container rm ldap_app
 ```
 
 - Remove volume
