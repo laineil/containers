@@ -9,7 +9,7 @@ set -o pipefail
 # load env & lib
 . /opt/script/libenv.sh
 . /opt/script/liblog.sh
-. /opt/script/libopenldap.sh
+. /opt/script/libapp.sh
 . /opt/script/libdisplay.sh
 
 if [[ -z "$(ls $LDAP_CONF_DIR)" ]]; then
