@@ -86,7 +86,7 @@ MAINTAINER laineil
 
 ARG TARGETARCH
 
-LABEL framework=openldap-2.5.14 release=r2 date=2305 arch=$TARGETARCH
+LABEL framework=openldap-2.5.14 release=r3 date=2305 arch=$TARGETARCH
 
 ARG TIMEZONE=Asia/Taipei
 ARG DNF_PKGS="glibc-langpack-en libtool-ltdl shadow-utils"
