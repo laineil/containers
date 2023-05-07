@@ -1,5 +1,5 @@
 # BSD 3-Clause License
-# Copyright (c) 2023, Laineil
+# Copyright (c) 2022, Laineil
 # All rights reserved.
 
 ### phase01-TLS-configurator ###
@@ -65,12 +65,12 @@ RUN unlink /etc/localtime && \
     microdnf install -y $DNF_PKGS && \
     useradd -u $APACHE_UID $APACHE_USER && \
     microdnf install -y $APACHE_PKGS && \
+    microdnf clean all && \
     chown $APACHE_UID:0 -R $HTTPD_RUN && \
     chown $APACHE_UID:0 -R $HTTPD_LOG && \
     chown $APACHE_UID:0 -R $HTTPD_LIB && \
     chown $APACHE_UID:0 -R $HTTPD_ETC/conf* && \
-    chown $APACHE_UID:0 -R $HTTPD_HTML_DIR && \
-    microdnf clean all
+    chown $APACHE_UID:0 -R $HTTPD_HTML_DIR
 
 USER $APACHE_UID
 
