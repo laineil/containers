@@ -33,7 +33,7 @@ $ docker pull laineil/[app_name]:[tag]
 ```bash
 $ git clone https://github.com/laineil/containers.git
 $ cd laineil/[app_name]
-$ docker build -t laineil/[app_name] -f [dockerfile_choose] .
+$ docker build -t laineil/[app_name] .
 ```
 
 ## Vulnerability scan
