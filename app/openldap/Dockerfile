@@ -3,11 +3,10 @@
 # All rights reserved.
 
 ### phase01-compiler ###
-FROM rockylinux:9.1-minimal as compiler
+FROM rockylinux:8-minimal as compiler
 
-ARG DEVEL_REPO=/etc/yum.repos.d/rocky-devel.repo
 ARG JAVA_VERSION=1.8.0
-ARG DNF_PKGS="diffutils findutils wget tar make gcc openssl-devel groff-base cyrus-sasl-devel libtool libtool-ltdl-devel git java-$JAVA_VERSION-openjdk java-$JAVA_VERSION-openjdk-devel"
+ARG DNF_PKGS="diffutils findutils wget tar make gcc openssl-devel groff-base cyrus-sasl-devel libtool-ltdl-devel libtool git java-$JAVA_VERSION-openjdk java-$JAVA_VERSION-openjdk-devel"
 ARG LDAP_VERSION=2.5.14
 ARG LDAP_BIN_URL=https://www.openldap.org/software/download/OpenLDAP/openldap-release/openldap-$LDAP_VERSION.tgz
 ARG LDAP_HOME=/opt/openldap
@@ -17,8 +16,7 @@ USER root
 
 WORKDIR /tmp
 
-RUN sed -i "s/enabled=0/enabled=1/g" $DEVEL_REPO && \
-    microdnf install -y $DNF_PKGS && \
+RUN microdnf install -y $DNF_PKGS && \
     microdnf clean all && \
     # download openldap source
     wget $LDAP_BIN_URL --no-check-certificate && \
@@ -42,7 +40,7 @@ RUN sed -i "s/enabled=0/enabled=1/g" $DEVEL_REPO && \
     --with-tls=openssl && \
     make depend && \
     make && \
-    # can be marked for fast building
+    # uncomment to test build
     #make test && \
     make install && \
     # build pqchecker from source
@@ -55,7 +53,7 @@ RUN sed -i "s/enabled=0/enabled=1/g" $DEVEL_REPO && \
     make install $LDAP_HOME/etc/openldap/pqchecker
 
 ### phase02-TLS-configurator ###
-FROM rockylinux:9.1-minimal as configurator
+FROM rockylinux:8-minimal as configurator
 
 ARG DNF_PKGS="openssl"
 ARG CERTS_HOME=/opt/certs
@@ -76,16 +74,10 @@ RUN microdnf install -y $DNF_PKGS && \
     chmod 644 $CERTS_HOME/*
 
 ### phase03-OpenLDAP image ###
-FROM rockylinux:9.1-minimal
-
-MAINTAINER laineil
-
-ARG TARGETARCH
-
-LABEL framework=openldap-2.5.14 release=r2 date=2305 arch=$TARGETARCH
+FROM rockylinux:8-minimal
 
 ARG TIMEZONE=Asia/Taipei
-ARG DNF_PKGS="glibc-langpack-en libtool-ltdl shadow-utils"
+ARG BASE_PKGS="glibc-langpack-en shadow-utils libtool-ltdl"
 ARG PHASE_SRC=/opt
 ARG LDAP_CONF=/volume/openldap/slapd.d
 ARG LDAP_DATA=/volume/openldap/data
@@ -108,7 +100,9 @@ COPY --chown=0:0 --chmod=755 $SCRIPT_SRC/ $SCRIPT_DEST/
 
 RUN unlink /etc/localtime && \
     ln -s /usr/share/zoneinfo/$TIMEZONE /etc/localtime && \
-    microdnf install -y $DNF_PKGS && \
+    microdnf install -y $BASE_PKGS && \
+    # uncomment to fix vulnerability
+    #microdnf update -y && \
     microdnf clean all && \
     mkdir -p $LDAP_CONF $LDAP_DATA && \
     useradd -u $LDAP_UID $LDAP_USER && \
