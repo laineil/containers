@@ -3,7 +3,7 @@
 # All rights reserved.
 
 ### phase01-TLS-configurator ###
-FROM rockylinux:9.1-minimal as configurator
+FROM rockylinux:9-minimal as configurator
 
 ARG DNF_PKGS="openssl"
 ARG CERTS_HOME=/opt/certs
@@ -21,17 +21,11 @@ RUN microdnf install -y $DNF_PKGS && \
     chmod 644 $CERTS_HOME/*
 
 ### phase02-HTTPD image ###
-FROM rockylinux:9.1-minimal
-
-MAINTAINER laineil
-
-ARG TARGETARCH
-
-LABEL framework=httpd-2.4.53 release=r1 date=2305 arch=$TARGETARCH
+FROM rockylinux:9-minimal
 
 ARG TIMEZONE=Asia/Taipei
-ARG DNF_PKGS="glibc-langpack-en shadow-utils"
-ARG APACHE_PKGS="httpd mod_ssl"
+ARG BASE_PKGS="glibc-langpack-en shadow-utils"
+ARG APP_PKGS="httpd mod_ssl"
 ARG PHASE_SRC=/opt/certs
 ARG APACHE_UID=1000
 ARG APACHE_USER=apache
@@ -62,9 +56,11 @@ COPY --chown=0:0 --chmod=755 $SCRIPT_SRC/ $SCRIPT_DEST/
 
 RUN unlink /etc/localtime && \
     ln -s /usr/share/zoneinfo/$TIMEZONE /etc/localtime && \
-    microdnf install -y $DNF_PKGS && \
+    microdnf install -y $BASE_PKGS && \
     useradd -u $APACHE_UID $APACHE_USER && \
-    microdnf install -y $APACHE_PKGS && \
+    microdnf install -y $APP_PKGS && \
+    # uncomment to fix vulnerability
+    #microdnf update -y && \
     microdnf clean all && \
     chown $APACHE_UID:0 -R $HTTPD_RUN && \
     chown $APACHE_UID:0 -R $HTTPD_LOG && \
