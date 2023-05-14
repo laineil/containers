@@ -1,5 +1,5 @@
 # BSD 3-Clause License
-# Copyright (c) 2022, Laineil
+# Copyright (c) 2023, Laineil
 # All rights reserved.
 
 ### phase01-TLS-configurator ###
