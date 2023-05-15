@@ -13,7 +13,7 @@ MAGENTA='\033[38;5;5m'
 
 # Log message
 log() {
-	printf "${MAGENTA}$(date +"%Y-%m-%d %H:%M:%S") ${NC}${*}\n"
+    printf "${MAGENTA}$(date +"%Y-%m-%d %H:%M:%S") ${NC}${*}\n"
 }
 
 # Log an 'info' message
