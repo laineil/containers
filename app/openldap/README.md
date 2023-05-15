@@ -27,7 +27,7 @@ The suite includes:
 
 The container can be easily setup with the following environment variables:
 
-- `LDAP_LOG_LEVEL` : Set the log level for the OpenLDAP server (see https://www.openldap.org/doc/admin25/slapdconfig.html for possible values). Default : **256**
+- `LDAP_LOG_LEVEL` : Set the log level for the OpenLDAP server (see https://www.openldap.org/doc/admin25/slapdconfig.html for possible values). Default: **256**
 
 - `LDAP_FRONTEND_ADMIN_PASSWORD`: LDAP frontend (config) admin password. Default: **Config@123**
 
