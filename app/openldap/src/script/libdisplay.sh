@@ -35,5 +35,5 @@ print_env_table() {
     else
         :
     fi
-printf "${BLUE}-------------- END --------------${NC}\n"
+    printf "${BLUE}-------------- END --------------${NC}\n"
 }
