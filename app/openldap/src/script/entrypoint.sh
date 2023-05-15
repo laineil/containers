@@ -13,10 +13,10 @@ set -o pipefail
 . /opt/script/libdisplay.sh
 
 if [[ -z "$(ls $LDAP_CONF_DIR)" ]]; then
-	# set up ldap
-	ldap_setup
-	# display var setting
-	print_env_table
+   # set up ldap
+   ldap_setup
+   # display var setting
+   print_env_table
 else
    info "Starting OpenLDAP with an external volume, all parameters except LDAP_LOG_LEVEL are ignored."
    print_env_value LDAP_LOG_LEVEL $LDAP_LOG_LEVEL
