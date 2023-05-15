@@ -39,8 +39,10 @@ ARG HTTPD_HTML_DIR=/var/www/html
 ARG SSL_CONF=/etc/httpd/conf.d/ssl.conf
 ARG INT_HTTP_PORT=8080
 ARG INT_HTTPS_PORT=8443
+ARG LOCALHOST_CA=/etc/pki/tls/certs/ca-bundle.crt
 ARG LOCALHOST_CRT=/etc/pki/tls/certs/localhost.crt
 ARG LOCALHOST_KEY=/etc/pki/tls/private/localhost.key
+ARG ROOT_CA=/opt/certs/rootca.crt
 ARG SERVER_CRT=/opt/certs/server.crt
 ARG SERVER_KEY=/opt/certs/server.key
 ARG SCRIPT_SRC=src/script
@@ -74,6 +76,7 @@ WORKDIR $HOME
 
 RUN sed -i "s/80/$INT_HTTP_PORT/g" $HTTPD_CONF && \
     sed -i "s/443/$INT_HTTPS_PORT/g" $SSL_CONF && \
+    sed -i "s#$LOCALHOST_CA#$ROOT_CA#g" $SSL_CONF && \
     sed -i "s#$LOCALHOST_CRT#$SERVER_CRT#g" $SSL_CONF && \
     sed -i "s#$LOCALHOST_KEY#$SERVER_KEY#g" $SSL_CONF
 
