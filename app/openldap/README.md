@@ -102,7 +102,7 @@ $ docker run -d \
 -e LDAP_ANON_BIND=disable \
 -e LDAP_ACS_RULE=strict \
 -e LDAP_PWD_POLICY=enable \
-laineil/openldap
+laineil/openldap:[tag]
 ```
 
 ## Verify

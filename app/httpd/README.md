@@ -20,9 +20,15 @@
 
 The container can be easily setup with the following environment variables:
 
-- `HTTPD_LOG_LEVEL` : Set the log level for the apache httpd server (see https://httpd.apache.org/docs/2.4/mod/core.html#loglevel for possible values). Default : **warn**
+- `HTTPD_LOG_LEVEL`: Set the log level for the apache httpd server (see https://httpd.apache.org/docs/2.4/mod/core.html#loglevel for possible values). Default: **warn**
+- `ROOTCA`: Whether to enable rootca for TLS or not. Default: **disable**
+  - enable: 
+    - Supply a **self-signed TLS certificate (with CA)**. You can replace the certificate with your own.
+    - certs dir: **/opt/certs**
+    - certs files: **rootca.crt**, **server.crt**, **server.key**
 
-To customize the configuration of the httpd server, first obtain the upstream default configuration from the container:
+
+To customize the configuration of the httpd server, you can obtain the upstream default configuration from the container:
 
 - **httpd.conf**
 
@@ -40,7 +46,7 @@ $ docker run --rm --entrypoint '' laineil/httpd:[tag] cat /etc/httpd/conf.d/ssl.
 
 Here are a few methods for running a container.
 
-- Quick start
+- Quick start (Recommended)
 
 ```bash
 $ docker run -d \
@@ -53,7 +59,7 @@ laineil/httpd:[tag]
 # Make sure the owner uid of [ext_html_dir] is 1000.
 ```
 
-- With your own TLS certificate
+- With your own TLS certificate with CA
 
 
 ```bash
@@ -63,9 +69,10 @@ $ docker run -d \
 -v [certs_path]:/opt/certs:ro \
 -p [expose_port]:8080 \
 -p [expose_port]:8443 \
+-e ROOTCA=enable \
 laineil/httpd:[tag]
 
-# [certs_folder] must contains server.crt, server.key (certificate name must match).
+# [certs_folder] must contains rootca.crt, server.crt, server.key (certificate name must match).
 # Make sure the certificate files within [certs_folder] have permission 644.
 ```
 
@@ -83,24 +90,12 @@ laineil/httpd:[tag]
 # Make sure the permission of conf files is 644.
 ```
 
-- Recommended Test Examples
-
-```bash
-$ docker run -d \
---name httpd_app \
--p 80:8080 \
--p 443:8443 \
-laineil/httpd:[tag]
-```
-
-
-
 ## Verify
 
 - with http
-  - http://[server_ip]:[http_port]
+  - http://[server_ip]:[http_port]/[int_html_dir]
 - with https
-  - https://[server_ip]:[https_port]
+  - https://[server_ip]:[https_port]/[int_html_dir]
 
 ## Logging
 
