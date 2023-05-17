@@ -21,7 +21,7 @@
 The container can be easily setup with the following environment variables:
 
 - `HTTPD_LOG_LEVEL`: Set the log level for the apache httpd server (see https://httpd.apache.org/docs/2.4/mod/core.html#loglevel for possible values). Default: **warn**
-- `ROOTCA`: Whether to enable rootca for TLS or not. Default: **disable**
+- `HTTPD_TLS_ROOTCA`: Whether to enable rootca for TLS or not. Default: **disable**
   - enable: 
     - Supply a **self-signed TLS certificate (with CA)**. You can replace the certificate with your own.
     - certs dir: **/opt/certs**
@@ -69,7 +69,7 @@ $ docker run -d \
 -v [certs_path]:/opt/certs:ro \
 -p [expose_port]:8080 \
 -p [expose_port]:8443 \
--e ROOTCA=enable \
+-e HTTPD_TLS_ROOTCA=enable \
 laineil/httpd:[tag]
 
 # [certs_folder] must contains rootca.crt, server.crt, server.key (certificate name must match).
