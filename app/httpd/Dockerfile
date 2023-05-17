@@ -76,9 +76,9 @@ WORKDIR $HOME
 
 RUN sed -i "s/80/$INT_HTTP_PORT/g" $HTTPD_CONF && \
     sed -i "s/443/$INT_HTTPS_PORT/g" $SSL_CONF && \
-    sed -i "s#$LOCALHOST_CA#$ROOT_CA#g" $SSL_CONF && \
-    sed -i "s#$LOCALHOST_CRT#$SERVER_CRT#g" $SSL_CONF && \
-    sed -i "s#$LOCALHOST_KEY#$SERVER_KEY#g" $SSL_CONF
+    sed -i "s|$LOCALHOST_CA|$ROOT_CA|g" $SSL_CONF && \
+    sed -i "s|$LOCALHOST_CRT|$SERVER_CRT|g" $SSL_CONF && \
+    sed -i "s|$LOCALHOST_KEY|$SERVER_KEY|g" $SSL_CONF
 
 EXPOSE $INT_HTTP_PORT $INT_HTTPS_PORT
 
