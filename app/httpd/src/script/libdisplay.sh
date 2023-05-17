@@ -23,6 +23,6 @@ print_env_value() {
 print_env_table() {
     printf "${BLUE}--------- CHECK ENV VAR ---------${NC}\n"
     print_env_value HTTPD_LOG_LEVEL $HTTPD_LOG_LEVEL
-    print_env_value ROOTCA $ROOTCA
+    print_env_value HTTPD_TLS_ROOTCA $HTTPD_TLS_ROOTCA
     printf "${BLUE}-------------- END --------------${NC}\n"
 }

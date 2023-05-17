@@ -7,14 +7,14 @@
 . /opt/script/liblog.sh
 
 ### set up rootca ###
-httpd_rootca() {
-    info "TLS ROOTCA is being set."
-    if [[ $ROOTCA == "disable" ]]; then
+httpd_tls_rootca() {
+    info "HTTPD TLS ROOTCA is being set."
+    if [[ $HTTPD_TLS_ROOTCA == "disable" ]]; then
         warn "To enhance security, we recommend using TLS with a CA certificate."
-    elif [[ $ROOTCA == "enable" ]]; then
+    elif [[ $HTTPD_TLS_ROOTCA == "enable" ]]; then
         sed -i "s/#SSLCACertificateFile/SSLCACertificateFile/g" $SSL_CONF
     else
-        error "ROOTCA setting is incorrect."
+        error "HTTPD_TLS_ROOTCA setting is incorrect."
         exit 1
     fi
 }
@@ -22,6 +22,6 @@ httpd_rootca() {
 ### setup apache httpd ###
 httpd_setup() {
     info "** Starting Apache HTTPD setup **"
-    httpd_rootca
+    httpd_tls_rootca
     info "** Apache HTTPD setup finished **"
 }

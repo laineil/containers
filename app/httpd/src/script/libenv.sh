@@ -9,4 +9,4 @@ SSL_CONF=/etc/httpd/conf.d/ssl.conf
 
 # dynamic var
 HTTPD_LOG_LEVEL="${HTTPD_LOG_LEVEL:-warn}"
-ROOTCA="${ROOTCA:-disable}"
+HTTPD_TLS_ROOTCA="${HTTPD_TLS_ROOTCA:-disable}"
