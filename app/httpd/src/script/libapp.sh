@@ -19,7 +19,7 @@ httpd_tls_rootca() {
     fi
 }
 
-### setup apache httpd ###
+### set up apache httpd ###
 httpd_setup() {
     info "** Starting Apache HTTPD setup **"
     httpd_tls_rootca
