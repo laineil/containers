@@ -190,7 +190,7 @@ ldap_pwd_policy() {
     fi
 }
 
-### setup ldap ###
+### set up ldap ###
 ldap_setup() {
     info "** Starting OpenLDAP setup **"
     ldap_init
