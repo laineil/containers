@@ -3,7 +3,7 @@
 # All rights reserved.
 
 ### phase01-compiler ###
-FROM rockylinux:8-minimal as compiler
+FROM almalinux:8-minimal as compiler
 
 ARG JAVA_VERSION=1.8.0
 ARG DNF_PKGS="diffutils findutils wget tar make gcc openssl-devel groff-base cyrus-sasl-devel libtool-ltdl-devel libtool git java-$JAVA_VERSION-openjdk java-$JAVA_VERSION-openjdk-devel"
@@ -53,7 +53,7 @@ RUN microdnf install -y $DNF_PKGS && \
     make install $LDAP_HOME/etc/openldap/pqchecker
 
 ### phase02-TLS-configurator ###
-FROM rockylinux:8-minimal as configurator
+FROM almalinux:8-minimal as configurator
 
 ARG DNF_PKGS="openssl"
 ARG CERTS_HOME=/opt/certs
@@ -74,7 +74,7 @@ RUN microdnf install -y $DNF_PKGS && \
     chmod 644 $CERTS_HOME/*
 
 ### phase03-OpenLDAP image ###
-FROM rockylinux:8-minimal
+FROM almalinux:8-minimal
 
 ARG TIMEZONE=Asia/Taipei
 ARG BASE_PKGS="glibc-langpack-en shadow-utils libtool-ltdl"

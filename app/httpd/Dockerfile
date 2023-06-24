@@ -3,7 +3,7 @@
 # All rights reserved.
 
 ### phase01-TLS-configurator ###
-FROM rockylinux:9-minimal as configurator
+FROM almalinux:9-minimal as configurator
 
 ARG DNF_PKGS="openssl"
 ARG CERTS_HOME=/opt/certs
@@ -21,7 +21,7 @@ RUN microdnf install -y $DNF_PKGS && \
     chmod 644 $CERTS_HOME/*
 
 ### phase02-HTTPD image ###
-FROM rockylinux:9-minimal
+FROM almalinux:9-minimal
 
 ARG TIMEZONE=Asia/Taipei
 ARG BASE_PKGS="glibc-langpack-en shadow-utils"
