@@ -156,10 +156,10 @@ $ docker volume rm ldap_volume
 
 - Users (ou=users)
 
-| Fcn              | ID                                      | PWD     |
-| :--------------- | :-------------------------------------- | :------ |
-| Service Accounts | uid=svc01-02,ou=users,dc=example,dc=org | Svc@123 |
-| General Users    | user01-10,ou=users,dc=example,dc=org    | demopw  |
+| Fcn              | ID                                       | PWD     |
+| :--------------- | :--------------------------------------- | :------ |
+| Service Accounts | uid=svc01-02,ou=users,dc=example,dc=org  | Svc@123 |
+| General Users    | uid=user01-10,ou=users,dc=example,dc=org | demopw  |
 
 - Groups (ou=groups)
 
