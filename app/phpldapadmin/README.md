@@ -49,7 +49,7 @@ Here are a few methods for running a container.
 
 ```bash
 $ docker run -d \
---name phpldapadmin_app \
+--name ldapadmin_app \
 -p [expose_port]:8080 \
 -p [expose_port]:8443 \
 -e LDAP_SERVER_HOST=[LDAP_server_host]
@@ -61,7 +61,7 @@ laineil/phpldapadmin:[tag]
 
 ```bash
 $ docker run -d \
---name phpldapadmin_app \
+--name ldapadmin_app \
 -v [certs_path]:/opt/certs:ro \
 -p [expose_port]:8080 \
 -p [expose_port]:8443 \
@@ -80,7 +80,7 @@ laineil/phpldapadmin:[tag]
 
 ```bash
 $ docker run -d \
---name phpldapadmin_app \
+--name ldapadmin_app \
 -p 80:8080 \
 -p 443:8443 \
 -e LDAP_CONN_MODE=ldaps
@@ -101,7 +101,7 @@ laineil/phpldapadmin:[tag]
 ## Logging
 
 ```bash
-$ docker logs phpldapadmin_app
+$ docker logs ldapadmin_app
 ```
 
 ## Remove
@@ -109,13 +109,13 @@ $ docker logs phpldapadmin_app
 - Stop container
 
 ```bash
-$ docker container stop phpldapadmin_app
+$ docker container stop ldapadmin_app
 ```
 
 - Remove container
 
 ```bash
-$ docker container rm phpldapadmin_app
+$ docker container rm ldapadmin_app
 ```
 
 ## License Agreement
