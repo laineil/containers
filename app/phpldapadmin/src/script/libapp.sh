@@ -115,7 +115,7 @@ phpldap_session_timeout() {
     info "phpLDAPadmin session timeout is being set."
     if [[ $PHPLDAP_SESSION_TIMEOUT == "disable" ]]; then
         :
-    elif [[ "$PHPLDAP_SESSION_TIMEOUT" -eq "$PHPLDAP_SESSION_TIMEOUT" ]] 2>/dev/null; then
+    elif [[ "$PHPLDAP_SESSION_TIMEOUT" =~ ^[1-9][0-9]*$ ]]; then
         sed -i "s|#  \(\$servers->setValue('login','timeout',30);\)|\1|g" $PHP_CONF
         sed -i "s/'timeout',30/'timeout',$PHPLDAP_SESSION_TIMEOUT/g" $PHP_CONF
     else
