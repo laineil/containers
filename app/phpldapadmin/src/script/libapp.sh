@@ -66,7 +66,7 @@ phpldap_server_name() {
     if [[ $LDAP_SERVER_NAME == "default" ]]; then
         :
     else
-        sed -i "s///$LDAP_SERVER_NAME/g" $PHP_CONF
+        sed -i "s/Local LDAP Server/$LDAP_SERVER_NAME/g" $PHP_CONF
     fi
 }
 
