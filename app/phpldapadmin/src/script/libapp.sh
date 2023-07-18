@@ -55,9 +55,7 @@ phpldap_ldap_server() {
         exit 1
     fi
     sed -i "s|// \(\$servers->setValue('server','host','127.0.0.1');\)|\1|g" $PHP_CONF
-    sed -i "s|// \(\$servers->setValue('server','port',389);\)|\1|g" $PHP_CONF
-    sed -i "s|'host','127.0.0.1'|'host',\'$LDAP_CONN_MODE://$LDAP_SERVER_HOST\'|g" $PHP_CONF
-    sed -i "s/'port',389/'port',$LDAP_CONN_PORT/g" $PHP_CONF
+    sed -i "s|'host','127.0.0.1'|'host',\'$LDAP_CONN_MODE://$LDAP_SERVER_HOST:$LDAP_CONN_PORT\'|g" $PHP_CONF
 }
 
 ### phpLDAPadmin set up ldap server name ###
