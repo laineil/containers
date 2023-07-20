@@ -29,9 +29,9 @@ The container can be easily setup with the following environment variables:
 
 - `LDAP_LOG_LEVEL`: Set the log level for the OpenLDAP server (see https://www.openldap.org/doc/admin25/slapdconfig.html for possible values). Default: **256**
 
-- `LDAP_FRONTEND_ADMIN_PASSWORD`: LDAP frontend (config) admin password. Default: **Config@123**
+- `LDAP_FE_ADMIN_PWD`: LDAP frontend (config) admin password. Default: **Config@123**
 
-- `LDAP_BACKEND_ADMIN_PASSWORD`: LDAP backend (mdb) admin password. Default: **Admin@123**
+- `LDAP_BE_ADMIN_PWD`: LDAP backend (mdb) admin password. Default: **Admin@123**
 
 - `LDAP_TLS`: Whether to enable TLS for traffic or not. Default: **disable** (enable)
   - enable: 
