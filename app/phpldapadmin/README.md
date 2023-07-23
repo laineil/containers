@@ -118,6 +118,22 @@ $ docker container stop ldapadmin_app
 $ docker container rm ldapadmin_app
 ```
 
+## Docker Compose File
+
+You can use the [`docker-compose.yaml`](https://github.com/laineil/containers/tree/main/app/openldap/docker-compose.yaml) file to combine [laineil/openldap](https://hub.docker.com/r/laineil/openldap) with [laineil/phpldapadmin](https://hub.docker.com/r/laineil/phpldapadmin).
+
+- Start containers
+
+```bash
+$ docker compose up -d
+```
+
+- Stop containers
+
+```bash
+$ docker compose down
+```
+
 ## License Agreement
 
 BSD 3-Clause License  
