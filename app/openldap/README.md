@@ -147,7 +147,7 @@ $ docker volume rm ldap_volume
 
 ## EXAMPLE Directory Tree
 
-The detailed information of the default example directory tree can be found [here]().
+The detailed information of the default example directory tree can be found [here](https://github.com/laineil/containers/blob/main/app/openldap/ex_dir_tree.md).
 
 ## Docker Compose File
 

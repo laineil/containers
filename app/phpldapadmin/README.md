@@ -34,8 +34,8 @@ The container can be easily setup with the following environment variables:
 - `LDAP_SERVER_HOST`: The IP address or fully qualified domain name (FQDN) of the LDAP server. Default: **127.0.0.1**
 - `LDAP_CONN_PORT`: The TCP port for establishing a connection to the LDAP server. Default: **389**
 - `LDAP_SERVER_NAME`: A convenient name that will appear in the tree viewer and throughout phpLDAPadmin to identify this LDAP server to users. Default: **default** (default is same as the **Local LDAP Server**)
-- `PHPLDAP_LOGIN_ATTR`: When presenting the login form, this will determine what is used as the **User ID** (see https://phpldapadmin.sourceforge.net/wiki/index.php/Server:login:attr for possible values). Default: **dn**
-- `PHPLDAP_AUTH_TYPE`: This configuration parameter will control where phpLDAPadmin stores and subsequently gets its authentication information from, once the users has logged in. (see https://phpldapadmin.sourceforge.net/wiki/index.php/Server:login:auth_type or possible values). Default: **session** (config / cookie / http / proxy)
+- `PHPLDAP_LOGIN_ATTR`: When presenting the login form, this will determine what is used as the **User ID** (see [Server:login:attr](https://phpldapadmin.sourceforge.net/wiki/index.php/Server:login:attr) for possible values). Default: **dn**
+- `PHPLDAP_AUTH_TYPE`: This configuration parameter will control where phpLDAPadmin stores and subsequently gets its authentication information from, once the users has logged in. (see [Server:login:auth type](https://phpldapadmin.sourceforge.net/wiki/index.php/Server:login:auth_type) for possible values). Default: **session** (config / cookie / http / proxy)
 - `PHPLDAP_ANON_BIND`: Whether to enable anonymous bind logins to the LDAP server or not. Default: **enable** (disable)
 - `PHPLDAP_SESSION_TIMEOUT`: The time out value in minutes for the phpLDAPadmin web. Default: **disable** (#, ex: 5)
 - `PHPLDAP_HIDE_WARN`: Whether to hide the warnings for invalid objectClasses/attributes in templates or not. Default: **enable** (disable)
