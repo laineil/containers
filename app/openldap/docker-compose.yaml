@@ -1,0 +1,49 @@
+# BSD 3-Clause License
+# Copyright (c) 2023, Laineil
+# All rights reserved.
+
+version: '3'
+
+networks:
+  ldap_network:
+    driver: bridge
+
+volumes:
+  ldap_volume:
+    driver: local
+
+services:
+  openldap:
+    image: laineil/openldap:latest
+    restart: always
+    container_name: openldap_app
+    ports:
+      - "389:1389"
+      - "636:1636"
+    networks:
+      - ldap_network
+    volumes:
+      - ldap_volume:/volume/openldap
+    environment:
+      LDAP_TLS: enable
+      LDAP_ANON_BIND: disable
+      LDAP_ACS_RULE: strict
+      LDAP_PWD_POLICY: enable
+  phpldapadmin:
+    image: laineil/phpldapadmin:latest
+    restart: always
+    container_name: phpldapadmin_app
+    ports:
+      - "80:8080"
+      - "443:8443"
+    networks:
+      - ldap_network
+    environment:
+      LDAP_CONN_MODE: ldaps
+      LDAP_SERVER_HOST: openldap
+      LDAP_CONN_PORT: 1636
+      PHPLDAP_ANON_BIND: disable
+      PHPLDAP_SESSION_TIMEOUT: 5
+      PHPLDAP_SAMPLE_DN: "uid=[id],ou=users,dc=example,dc=org"
+    depends_on:
+      - openldap
