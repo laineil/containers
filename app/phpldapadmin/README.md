@@ -31,6 +31,11 @@ The container can be easily setup with the following environment variables:
 
 - `LDAP_CONN_MODE`: Connecting to an LDAP server using LDAP or LDAPS. Default: **ldap** (ldaps)
 - `LDAP_TLS_REQCERT`: Specifies what checks to perform on server certificates in a TLS session (see [ldap_tls_reqcert](https://linux.die.net/man/5/sssd-ldap)). Default: **never** (allow / try / demand)
+  - allow / try /demand:
+    - Supply a **self-signed TLS certificate CA**. You can replace the certificate with your own.
+    - certs dir: **/opt/certs**
+    - certs files: **ldapca.crt**
+
 - `LDAP_SERVER_HOST`: The IP address or fully qualified domain name (FQDN) of the LDAP server. Default: **127.0.0.1**
 - `LDAP_CONN_PORT`: The TCP port for establishing a connection to the LDAP server. Default: **389**
 - `LDAP_SERVER_NAME`: A convenient name that will appear in the tree viewer and throughout phpLDAPadmin to identify this LDAP server to users. Default: **default** (default is same as the **Local LDAP Server**)
