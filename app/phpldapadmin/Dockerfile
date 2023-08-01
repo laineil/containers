@@ -25,7 +25,8 @@ RUN microdnf install -y $DNF_PKGS && \
 FROM almalinux:8-minimal
 
 ARG TIMEZONE=Asia/Taipei
-ARG BASE_PKGS="glibc-langpack-en shadow-utils epel-release"
+ARG BASE_PKGS="glibc-langpack-en shadow-utils"
+ARG EPEL_RPM="https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm"
 ARG APP_PKGS="httpd mod_ssl phpldapadmin supervisor"
 ARG PHASE_SRC=/opt/certs
 ARG APACHE_UID=1000
@@ -70,6 +71,7 @@ COPY --chown=0:0 --chmod=644 $CONF_SRC/ $CONF_DEST/
 RUN unlink /etc/localtime && \
     ln -s /usr/share/zoneinfo/$TIMEZONE /etc/localtime && \
     microdnf install -y $BASE_PKGS && \
+    rpm -ivh $EPEL_RPM && \
     useradd -u $APACHE_UID $APACHE_USER && \
     microdnf install -y $APP_PKGS && \
     microdnf remove -y epel-release && \
