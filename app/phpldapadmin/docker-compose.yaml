@@ -4,14 +4,6 @@
 
 version: '3'
 
-networks:
-  ldap_network:
-    driver: bridge
-
-volumes:
-  ldap_volume:
-    driver: local
-
 services:
   openldap:
     image: laineil/openldap:latest
@@ -47,3 +39,11 @@ services:
       PHPLDAP_SAMPLE_DN: "uid=[id],ou=users,dc=example,dc=org"
     depends_on:
       - openldap
+
+networks:
+  ldap_network:
+    driver: bridge
+
+volumes:
+  ldap_volume:
+    driver: local
