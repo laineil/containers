@@ -8,7 +8,7 @@ Some key tips about the laineil container images:
 
 - Support **x86_64** / **arm64** / **ppc64le**.
 
-- Base on **Red Hat ubi minimal** / **Rocky Linux minimal** / **Alma Linux minimal**.
+- Based on **Alma Linux minimal** / **Rocky Linux minimal** / **Red Hat UBI minimal**.
 
 - The use of **non-root container images** can enhance system security.
 
