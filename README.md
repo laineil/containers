@@ -1,3 +1,5 @@
+![Static Badge](https://img.shields.io/badge/arch-x86__64 | arm64 | ppc64le-blue)![GitHub](https://img.shields.io/github/license/laineil/containers)
+
 # Containers Library from Laineil
 
 Some applications containerized and ready to launch, provided by Laineil.
@@ -6,9 +8,9 @@ Some applications containerized and ready to launch, provided by Laineil.
 
 Some key tips about the laineil container images:
 
-- Support **x86_64** / **arm64** / **ppc64le**.
+- Support **x86_64** | **arm64** | **ppc64le**.
 
-- Based on **Alma Linux minimal** / **Rocky Linux minimal** / **Red Hat UBI minimal**.
+- Based on **Alma Linux minimal** | **Rocky Linux minimal** | **Red Hat UBI minimal**.
 
 - The use of **non-root container images** can enhance system security.
 

@@ -1,4 +1,4 @@
-[![Docker Pulls](https://img.shields.io/docker/pulls/laineil/httpd)](https://hub.docker.com/r/laineil/httpd) [![Docker Image Size (latest by date)](https://img.shields.io/docker/image-size/laineil/httpd?sort=date)](https://hub.docker.com/r/laineil/httpd/tags) [![Docker Image Version (latest by date)](https://img.shields.io/docker/v/laineil/httpd?sort=date)](https://hub.docker.com/r/laineil/httpd/tags)
+[![Docker Pulls](https://img.shields.io/docker/pulls/laineil/httpd)](https://hub.docker.com/r/laineil/httpd) [![Docker Image Size (latest by date)](https://img.shields.io/docker/image-size/laineil/httpd?sort=date)](https://hub.docker.com/r/laineil/httpd/tags) [![Docker Image Version (latest by date)](https://img.shields.io/docker/v/laineil/httpd?sort=date)](https://hub.docker.com/r/laineil/httpd/tags)![Static Badge](https://img.shields.io/badge/arch-x86__64 | arm64 | ppc64le-blue)![GitHub](https://img.shields.io/github/license/laineil/containers)
 
 ## About Apache HTTPD
 
