@@ -1,4 +1,4 @@
-![Static Badge](https://img.shields.io/badge/arch_x86__64%20%7C%20arm64%20%7C%20ppc64le-blue)![GitHub](https://img.shields.io/github/license/laineil/containers)
+![Static Badge](https://img.shields.io/badge/arch-x86__64%20%7C%20arm64%20%7C%20ppc64le-blue)![GitHub](https://img.shields.io/github/license/laineil/containers)
 
 # Containers Library from Laineil
 
