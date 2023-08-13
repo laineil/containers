@@ -7,7 +7,7 @@ FROM almalinux:8-minimal as compiler
 
 ARG JAVA_VERSION=1.8.0
 ARG DNF_PKGS="diffutils findutils wget tar make gcc openssl-devel groff-base cyrus-sasl-devel libtool-ltdl-devel libtool git java-$JAVA_VERSION-openjdk java-$JAVA_VERSION-openjdk-devel"
-ARG LDAP_VERSION=2.5.15
+ARG LDAP_VERSION=2.5.16
 ARG LDAP_BIN_URL=https://www.openldap.org/software/download/OpenLDAP/openldap-release/openldap-$LDAP_VERSION.tgz
 ARG LDAP_HOME=/opt/openldap
 ARG PQCHECKER_URL=https://bitbucket.org/ameddeb/pqchecker.git
