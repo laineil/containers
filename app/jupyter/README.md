@@ -1,3 +1,5 @@
+![Static Badge](https://img.shields.io/badge/python-3.10%20%7C%203.11-blue) ![Static Badge](https://img.shields.io/badge/cuda-11.8%20%7C%2012.2-blue) ![Static Badge](https://img.shields.io/badge/arch-x86__64%20%7C%20arm64%20%7C%20ppc64le-blue) ![GitHub](https://img.shields.io/github/license/laineil/containers)
+
 ## About Jupyter Docker Stacks
 
 Jupyter Docker Stacks are a set of ready-to-run **docker images** 
