@@ -1,4 +1,4 @@
-[![Docker Pulls](https://img.shields.io/docker/pulls/laineil/openldap)](https://hub.docker.com/r/laineil/openldap) [![Docker Image Size (latest by date)](https://img.shields.io/docker/image-size/laineil/openldap?sort=date)](https://hub.docker.com/r/laineil/openldap/tags) [![Docker Image Version (latest by date)](https://img.shields.io/docker/v/laineil/openldap?sort=date)](https://hub.docker.com/r/laineil/openldap/tags)![Static Badge](https://img.shields.io/badge/arch-x86__64 | arm64 | ppc64le-blue)![GitHub](https://img.shields.io/github/license/laineil/containers)
+[![Docker Pulls](https://img.shields.io/docker/pulls/laineil/openldap)](https://hub.docker.com/r/laineil/openldap) [![Docker Image Size (latest by date)](https://img.shields.io/docker/image-size/laineil/openldap?sort=date)](https://hub.docker.com/r/laineil/openldap/tags) [![Docker Image Version (latest by date)](https://img.shields.io/docker/v/laineil/openldap?sort=date)](https://hub.docker.com/r/laineil/openldap/tags) ![Static Badge](https://img.shields.io/badge/arch-x86__64%20%7C%20arm64%20%7C%20ppc64le-blue) ![GitHub](https://img.shields.io/github/license/laineil/containers)
 
 ## About OpenLDAP
 
