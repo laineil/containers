@@ -10,8 +10,7 @@ ARG EPEL_RPM="https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch
 ARG APP_PKGS="tini"
 ARG CONDA_BIN=Minforge.sh
 ARG SCRIPT_SRC=src/script
-ARG CONF_SRC=src/conf/initial-condarc
-ARG SCRIPT_DEST=/opt/script
+ARG SCRIPT_DEST=/usr/local/bin
 
 ENV CONDA_DIR=/opt/conda
 ENV NB_USER=jovyan
