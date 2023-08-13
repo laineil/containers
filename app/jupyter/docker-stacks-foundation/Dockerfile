@@ -5,7 +5,7 @@
 FROM almalinux:8-minimal
 
 ARG TIMEZONE=Asia/Taipei
-ARG BASE_PKGS="glibc-langpack-en shadow-utils findutils"
+ARG BASE_PKGS="glibc-langpack-en shadow-utils findutils sudo"
 ARG EPEL_RPM="https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm"
 ARG APP_PKGS="tini"
 ARG CONDA_BIN=Minforge.sh
