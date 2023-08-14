@@ -13,12 +13,17 @@ ARG SCRIPT_SRC=src/script
 ARG SCRIPT_DEST=/usr/local/bin
 
 ENV CONDA_DIR=/opt/conda
+ENV SHELL=/bin/bash
 ENV NB_USER=jovyan
 ENV NB_UID=1000
 ENV NB_GID=100
 ENV HOME=/home/$NB_USER
 ENV LANG=en_US.UTF-8
 ENV PATH=$CONDA_DIR/bin:$SCRIPT_DEST:$PATH
+
+# Fix: https://github.com/hadolint/hadolint/wiki/DL4006
+# Fix: https://github.com/koalaman/shellcheck/wiki/SC3014
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 USER root
 
