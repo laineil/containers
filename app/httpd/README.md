@@ -93,9 +93,9 @@ laineil/httpd:[tag]
 ## Verify
 
 - with http
-  - http://[server_ip]:[http_port]/[int_html_dir]
+  - http://[server_host]:[expose_port]/[int_html_dir]
 - with https
-  - https://[server_ip]:[https_port]/[int_html_dir]
+  - https://[server_host]:[expose_port]/[int_html_dir]
 
 ## Logging
 

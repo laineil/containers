@@ -99,9 +99,9 @@ laineil/phpldapadmin:[tag]
 ## Verify
 
 - with http
-  - http://[server_ip]:[http_port]/phpldapadmin
+  - http://[server_host]:[expose_port]/phpldapadmin
 - with https
-  - https://[server_ip]:[https_port]/phpldapadmin
+  - https://[server_host]:[expose_port]/phpldapadmin
 
 ## Logging
 
