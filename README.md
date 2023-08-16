@@ -40,7 +40,7 @@ $ docker build -t laineil/[app_name] .
 
 ## Vulnerability scan
 
-As part of the release process, use [Docker Scout](https://docs.docker.com/scout/) | [snyk](https://app.snyk.io/) to scan and analyze vulnerabilities.
+As part of the release process, use [Docker Scout](https://docs.docker.com/scout/) | [Snyk](https://app.snyk.io/) to scan and analyze vulnerabilities.
 
 ## Issues and Contributing
 
