@@ -8,9 +8,9 @@ Some applications containerized and ready to launch, provided by Laineil.
 
 Some key tips about the laineil container images:
 
-- Support **x86_64**|**arm64**|**ppc64le**.
+- Support **x86_64** | **arm64** | **ppc64le**.
 
-- Based on **Alma Linux minimal** |**Rocky Linux minimal**|**Red Hat UBI minimal**.
+- Based on **Alma Linux minimal** | **Rocky Linux minimal** | **Red Hat UBI minimal**.
 
 - The use of **non-root container images** can enhance system security.
 
@@ -40,7 +40,7 @@ $ docker build -t laineil/[app_name] .
 
 ## Vulnerability scan
 
-As part of the release process, use [Docker Scout](https://docs.docker.com/scout/)|[snyk](https://app.snyk.io/) to scan and analyze vulnerabilities.
+As part of the release process, use [Docker Scout](https://docs.docker.com/scout/) | [snyk](https://app.snyk.io/) to scan and analyze vulnerabilities.
 
 ## Issues and Contributing
 
