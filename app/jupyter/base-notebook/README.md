@@ -30,7 +30,7 @@ laineil/jupyter-base-notebook:[tag]
 
 ```bash
 $ docker run -d \
---gpus [# of GPU] \
+--gpus [number_of_GPUs] \
 --name jupyter_base \
 -p [expose_port]:8888 \
 laineil/jupyter-base-notebook:[tag]
