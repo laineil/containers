@@ -50,6 +50,8 @@ RUN set -x && \
     jupyterhub \
     nbclassic && \
     jupyter server --generate-config && \
+    # Disable news notifications
+    #jupyter labextension disable "@jupyterlab/apputils-extension:announcements" && \
     mamba clean -afy && \
     npm cache clean --force && \
     jupyter lab clean && \
