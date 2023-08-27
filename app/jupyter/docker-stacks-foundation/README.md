@@ -34,6 +34,17 @@ $ docker run -it \
 laineil/jupyter-docker-stacks-foundation:[tag]
 ```
 
+- Run sudo within container
+
+```bash
+$ docker run -d \
+--name jupyter_base \
+-p [expose_port]:8888 \
+--user root \
+-e GRANT_SUDO=yes \
+laineil/jupyter-base-notebook:[tag]
+```
+
 ## Logging
 
 ```bash
