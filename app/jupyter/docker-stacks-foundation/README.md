@@ -39,7 +39,6 @@ laineil/jupyter-docker-stacks-foundation:[tag]
 ```bash
 $ docker run -d \
 --name jupyter_fondation \
--p [expose_port]:8888 \
 --user root \
 -e GRANT_SUDO=yes \
 laineil/jupyter-docker-stacks-foundation:[tag]
