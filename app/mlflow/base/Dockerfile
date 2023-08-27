@@ -47,9 +47,6 @@ RUN set -x && \
     rm -f $CONDA_BIN && \
     conda config --system --set auto_update_conda false && \
     conda config --system --set show_channel_urls true && \
-    conda install -qy \
-    mamba && \
-    conda clean -ayf && \
     mamba list python | grep '^python ' | tr -s ' ' | cut -d ' ' -f 1,2 >> "$CONDA_DIR/conda-meta/pinned" && \
     mamba install -qy \
     mlflow && \
