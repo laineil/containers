@@ -43,7 +43,7 @@ RUN unlink /etc/localtime && \
     # Create NB_USER with name jovyan user with UID=1000 and in the 'users' group
     # and make sure these dirs are writable by the `users` group.
     useradd $NB_USER -u $NB_UID -g $NB_GID && \
-    mkdir -p $CONDA_DIR && \
+    mkdir -p $CONDA_DIR /usr/local/bin/start-notebook.d /usr/local/bin/before-notebook.d && \
     chown $NB_USER:$NB_GID $CONDA_DIR && \
     fix-permissions $CONDA_DIR && \
     fix-permissions $HOME
@@ -62,10 +62,9 @@ RUN set -x && \
     rm -f $CONDA_BIN && \
     conda config --system --set auto_update_conda false && \
     conda config --system --set show_channel_urls true && \
-    conda install -qy \
-    mamba \
-    jupyter_core && \
     mamba list python | grep '^python ' | tr -s ' ' | cut -d ' ' -f 1,2 >> "$CONDA_DIR/conda-meta/pinned" && \
+    mamba install -qy \
+    jupyter_core && \
     # clean up temporary conda files
     mamba clean -afy && \
     # correct permissions
