@@ -15,6 +15,7 @@ ENV SHELL=/bin/bash
 ENV MLFLOW_USER=mlflow
 ENV MLFLOW_UID=1000
 ENV HOME=/home/$MLFLOW_USER
+ENV MLFLOW_DATA=/volume/mlflow
 ENV LANG=en_US.UTF-8
 ENV PATH=$CONDA_DIR/bin:$PATH
 
@@ -31,8 +32,8 @@ RUN unlink /etc/localtime && \
     microdnf install -y $BASE_PKGS && \
     microdnf clean all && \
     useradd -u $MLFLOW_UID $MLFLOW_USER && \
-    mkdir -p $CONDA_DIR && \
-    chown $MLFLOW_UID:$MLFLOW_UID $CONDA_DIR
+    mkdir -p $CONDA_DIR $MLFLOW_DATA && \
+    chown $MLFLOW_UID:$MLFLOW_UID $CONDA_DIR $MLFLOW_DATA
 
 USER $MLFLOW_USER
 
