@@ -29,8 +29,8 @@ laineil/jupyter-docker-stacks-foundation:[tag]
 
 ```bash
 $ docker run -it \
---gpus [# of GPU] \
 --name jupyter_fondation \
+--gpus [# of GPU] \
 laineil/jupyter-docker-stacks-foundation:[tag]
 ```
 
