@@ -10,7 +10,7 @@ FROM laineil/jupyter-docker-stacks-foundation:latest
 # - run-one - a wrapper script that runs no more
 #   than one unique  instance  of  some  command with a unique set of arguments,
 #   we use `run-one-constantly` to support `RESTARTABLE` option
-ARG BASE_PKGS="liberation-fonts-common pandoc util-linux"
+ARG BASE_PKGS="liberation-fonts pandoc util-linux"
 ARG SCRIPT_SRC=src/script
 ARG SCRIPT_DEST=/usr/local/bin
 ARG CONF_SRC=src/conf
