@@ -33,9 +33,7 @@ The container can be easily setup with the following environment variables:
 
 ## Run a container
 
-Here are a few methods for running a container.
-
-- Quick start
+- Quick start (Recommended)
 
 ```bash
 $ docker run -it \

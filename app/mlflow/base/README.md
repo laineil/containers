@@ -18,6 +18,8 @@ Please visit the project documentation site for help to use and contribute to th
 
 ## Run a container
 
+- Quick start (Recommended)
+
 ```bash
 $ docker run -it \
 --name mlflow_base \
