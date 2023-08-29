@@ -10,7 +10,8 @@ FROM laineil/jupyter-docker-stacks-foundation:latest
 # - run-one - a wrapper script that runs no more
 #   than one unique  instance  of  some  command with a unique set of arguments,
 #   we use `run-one-constantly` to support `RESTARTABLE` option
-ARG BASE_PKGS="liberation-fonts pandoc util-linux"
+# mamba installed jupyterhub includes pandoc dependency.
+ARG BASE_PKGS="liberation-fonts util-linux"
 ARG SCRIPT_SRC=src/script
 ARG SCRIPT_DEST=/usr/local/bin
 ARG CONF_SRC=src/conf
@@ -29,8 +30,7 @@ COPY --chown=0:0 --chmod=755 $SCRIPT_SRC $SCRIPT_DEST
 # Install all OS dependencies for Server that starts but lacks all
 # features (e.g., download as all possible file formats)
 # enable powertools repos for pandoc
-RUN sed -i '0,/enabled=0/s//enabled=1/' /etc/yum.repos.d/almalinux-powertools.repo && \
-    microdnf install -y $BASE_PKGS && \
+RUN microdnf install -y $BASE_PKGS && \
     microdnf clean all
 
 USER $NB_UID
