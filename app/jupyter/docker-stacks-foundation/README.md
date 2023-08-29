@@ -12,7 +12,7 @@ Please visit the project documentation site for help to use and contribute to th
 ## Image information
 
 - The use of **non-root container images** can enhance system security.
-- A modified edition of the Dockerfile based on [jupyter/docker-stacks/docker-stacks-foundation](https://github.com/jupyter/docker-stacks/tree/main/docker-stacks-foundation).
+- A modified edition of the Dockerfile based on [jupyter/docker-stacks/docker-stacks-foundation](https://github.com/jupyter/docker-stacks/blob/main/images/docker-stacks-foundation/Dockerfile).
 - Subscribe to project updates by watching the [laineil/containers GitHub repo](https://github.com/laineil/containers) for more information.
 
 ## Run a container
