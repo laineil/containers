@@ -22,14 +22,12 @@ Please visit the project documentation site for help to use and contribute to th
 The container can be easily setup with the following environment variables:
 
 - `MLF_BACKEND_STORE_UIR`: URI to which to persist experiment and run data. Acceptable URIs are SQLAlchemy-compatible database connection strings (e.g. 'sqlite:///path/to/file.db') or local filesystem URIs (e.g. 'file:///absolute/path/to/directory'). Default: **sqlite:////volume/mlflow/mlflow.db**
-
-- `MLF_DEFAULT_ARTIFACT_ROOT`: Directory in which to store artifacts for any new experiments created. For tracking server backends that rely on SQL, this option is required in order to store artifacts. Note that this flag does not impact already-created experiments with any previous configuration of an MLflow server instance. Default: **file:///volume/mlflow/mlruns**
-
 - `MLF_WORKERS`: Number of gunicorn worker processes to handle requests. Default: **1**
-
-- `MLF_PROMETHEUS`: Whether to enable expose_prometheus or not. Default: **disable** (enable)
-
+- `MLF_ARTIFACT_ROOT`: Whether to enable `--default-artifact-root <URI>` or not. Default: **disable** (enable)
+- `MLF_DEFAULT_ARTIFACT_ROOT`: If MLF_ARTIFACT_ROOT is enabled, it will take effect. Directory in which to store artifacts for any new experiments created. For tracking server backends that rely on SQL, this option is required in order to store artifacts. Note that this flag does not impact already-created experiments with any previous configuration of an MLflow server instance. Default: **none**
+- `MLF_PROMETHEUS`: Whether to enable `--expose-prometheus <expose_prometheus>` or not. Default: **disable** (enable)
 - `MLF_EXPORSE_PROMETHEUS`: If MLF_PROMETHEUS is enabled, it will take effect. Specify the path to the directory where metrics will be stored. If the directory doesn't exist, it will be created. Default: **/volume/mlflow/metrics**
+- `MLF_DEBUG`: Whether to enable debug mode or not. Default: **disable** (enable)
 
 ## Run a container
 
