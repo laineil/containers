@@ -27,8 +27,6 @@ print_env_table() {
     print_env_value LDAP_CONN_MODE $LDAP_CONN_MODE
     if [[ $LDAP_CONN_MODE == "ldaps" ]]; then
         print_env_value LDAP_TLS_REQCERT $LDAP_TLS_REQCERT
-    else
-        :
     fi
     print_env_value LDAP_SERVER_NAME $LDAP_SERVER_NAME
     print_env_value LDAP_SERVER_HOST $LDAP_SERVER_HOST

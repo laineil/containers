@@ -32,8 +32,6 @@ print_env_table() {
     if [[ $LDAP_EX_TREE == "enable" ]]; then
         print_env_value LDAP_ACS_RULE $LDAP_ACS_RULE
         print_env_value LDAP_PWD_POLICY $LDAP_PWD_POLICY
-    else
-        :
     fi
     printf "${BLUE}-------------- END --------------${NC}\n"
 }
