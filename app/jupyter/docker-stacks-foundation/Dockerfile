@@ -17,7 +17,7 @@ ENV SHELL=/bin/bash
 ENV NB_USER=jovyan
 ENV NB_UID=1000
 ENV NB_GID=100
-ENV NB_HOME=/home/$NB_USER
+ENV HOME=/home/$NB_USER
 ENV LANG=en_US.UTF-8
 ENV PATH=$CONDA_DIR/bin:$SCRIPT_DEST:$PATH
 
@@ -45,11 +45,11 @@ RUN unlink /etc/localtime && \
     mkdir -p $CONDA_DIR /usr/local/bin/start-notebook.d /usr/local/bin/before-notebook.d && \
     chown $NB_USER:$NB_GID $CONDA_DIR && \
     fix-permissions $CONDA_DIR && \
-    fix-permissions $NB_HOME
+    fix-permissions $HOME
 
 USER $NB_UID
 
-WORKDIR $NB_HOME
+WORKDIR $HOME
 
 RUN set -x && \
     # Setup work directory for backward-compatibility
@@ -68,7 +68,7 @@ RUN set -x && \
     mamba clean -afy && \
     # correct permissions
     fix-permissions $CONDA_DIR && \
-    fix-permissions $NB_HOME
+    fix-permissions $HOME
 
 # Configure container startup
 ENTRYPOINT ["tini", "-g", "--"]
