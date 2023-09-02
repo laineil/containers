@@ -5,7 +5,7 @@
 FROM almalinux:8-minimal
 
 ARG TIMEZONE=Asia/Taipei
-ARG BASE_PKGS="glibc-langpack-en shadow-utils findutils sudo"
+ARG BASE_PKGS="glibc-langpack-en shadow-utils findutils sudo coreutils-common"
 ARG EPEL_RPM="https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm"
 ARG APP_PKGS="tini"
 ARG CONDA_BIN=Minforge.sh
@@ -17,7 +17,7 @@ ENV SHELL=/bin/bash
 ENV NB_USER=jovyan
 ENV NB_UID=1000
 ENV NB_GID=100
-ENV HOME=/home/$NB_USER
+ENV NB_HOME=/home/$NB_USER
 ENV LANG=en_US.UTF-8
 ENV PATH=$CONDA_DIR/bin:$SCRIPT_DEST:$PATH
 
@@ -32,8 +32,7 @@ COPY --chown=0:0 --chmod=755 $SCRIPT_SRC/ $SCRIPT_DEST/
 RUN unlink /etc/localtime && \
     ln -s /usr/share/zoneinfo/$TIMEZONE /etc/localtime && \
     # enable prompt color in the skeleton .bashrc before creating the default NB_USER
-    echo "alias ls='ls --color=auto'" >> /etc/skel/.bashrc && \
-    echo "alias ll='ls -l --color=auto'" >> /etc/skel/.bashrc && \
+    echo "PS1='\[\033[1;30m\][\[\033[01;32m\]\u@\h\[\033[1;30m\]:\[\033[01;34m\]\w\[\033[1;30m\]]\[\033[00m\]\$ '" >> /etc/skel/.bashrc && \
     # Add call to conda init script see https://stackoverflow.com/a/58081608/4413446
     echo 'eval "$(command conda shell.bash hook 2> /dev/null)"' >> /etc/skel/.bashrc && \
     microdnf install -y $BASE_PKGS && \
@@ -46,11 +45,11 @@ RUN unlink /etc/localtime && \
     mkdir -p $CONDA_DIR /usr/local/bin/start-notebook.d /usr/local/bin/before-notebook.d && \
     chown $NB_USER:$NB_GID $CONDA_DIR && \
     fix-permissions $CONDA_DIR && \
-    fix-permissions $HOME
+    fix-permissions $NB_HOME
 
 USER $NB_UID
 
-WORKDIR $HOME
+WORKDIR $NB_HOME
 
 RUN set -x && \
     # Setup work directory for backward-compatibility
@@ -69,7 +68,7 @@ RUN set -x && \
     mamba clean -afy && \
     # correct permissions
     fix-permissions $CONDA_DIR && \
-    fix-permissions $HOME
+    fix-permissions $NB_HOME
 
 # Configure container startup
 ENTRYPOINT ["tini", "-g", "--"]

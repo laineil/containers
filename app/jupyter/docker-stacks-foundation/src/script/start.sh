@@ -225,7 +225,7 @@ else
         _log "WARNING: container must be started as root to change the desired user's group id with NB_GID=\"${NB_GID}\"!"
     fi
 
-    # Warn if the user isn't able to write files to ${HOME}
+    # Warn if the user isn't able to write files to ${NB_HOME}
     if [[ ! -w /home/jovyan ]]; then
         _log "WARNING: no write access to /home/jovyan. Try starting the container with group 'users' (100), e.g. using \"--group-add=users\"."
     fi
