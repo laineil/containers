@@ -29,7 +29,6 @@ COPY --chown=0:0 --chmod=755 $SCRIPT_SRC $SCRIPT_DEST
 
 # Install all OS dependencies for Server that starts but lacks all
 # features (e.g., download as all possible file formats)
-# enable powertools repos for pandoc
 RUN microdnf install -y $BASE_PKGS && \
     microdnf clean all
 
