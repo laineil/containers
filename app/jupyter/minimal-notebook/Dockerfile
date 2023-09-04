@@ -10,9 +10,7 @@ FROM laineil/jupyter-base-notebook:latest
 # nbconvert dependencies
 # https://nbconvert.readthedocs.io/en/latest/install.html#installing-tex
 # Enable clipboard on Linux host systems
-ARG BASE_PKGS="git tar unzip openssh-clients less xclip texlive-xetex texlive-collection-fontsrecommended texlive-collection-latexrecommended texlive-tcolorbox texlive-upquote texlive-ucharcat texlive-adjustbox texlive-titling texlive-ulem"
-# other recommand packages
-# vim, nano, bash-completion
+ARG BASE_PKGS="git tar unzip openssh-clients less xclip texlive-xetex texlive-bibtex texlive-eurosym texlive-jknapltx texlive-lm-math texlive-rsfs texlive-ec texlive-parskip texlive-ulem texlive-titling texlive-tcolorbox texlive-adjustbox texlive-ucharcat texlive-upquote"
 ARG CONF_SRC=src/conf
 ARG CONF_DEST=/opt/conda/lib/R/etc
 ARG SCRIPT_SRC=src/setup-scripts
