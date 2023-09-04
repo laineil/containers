@@ -10,7 +10,6 @@ FROM laineil/jupyter-docker-stacks-foundation:latest
 # - run-one - a wrapper script that runs no more
 #   than one unique  instance  of  some  command with a unique set of arguments,
 #   we use `run-one-constantly` to support `RESTARTABLE` option
-# mamba installed jupyterhub includes pandoc dependency.
 ARG BASE_PKGS="liberation-fonts util-linux"
 ARG SCRIPT_SRC=src/script
 ARG SCRIPT_DEST=/usr/local/bin
@@ -42,12 +41,18 @@ WORKDIR /tmp
 # Correct permissions
 # Do all this in a single RUN command to avoid duplicating all of the
 # files across image layers when the permissions change
+# mamba installed jupyterhub includes pandoc dependency.
 RUN set -x && \
     mamba install -qy \
     jupyterlab \
     notebook \
     jupyterhub \
     nbclassic && \
+    if [[ $TARGETARCH == "ppc64le" ]]; then \
+        mamba install -qy -c anaconda pandoc; \
+        # fix pandoc: error while loading shared libraries: libffi.so.7: cannot open shared object file: No such file or directory
+        ln -s /opt/conda/lib/libffi.so.8 /opt/conda/lib/libffi.so.7; \
+    fi && \
     jupyter server --generate-config && \
     # Disable news notifications
     #jupyter labextension disable "@jupyterlab/apputils-extension:announcements" && \
