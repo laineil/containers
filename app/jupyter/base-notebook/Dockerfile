@@ -54,7 +54,7 @@ RUN set -x && \
     mamba clean -afy && \
     npm cache clean --force && \
     jupyter lab clean && \
-    rm -rf "/home/${NB_USER}/.cache/yarn" && \
+    rm -rf "/home/$NB_USER/.cache/yarn" && \
     fix-permissions $CONDA_DIR && \
     fix-permissions $HOME
 
