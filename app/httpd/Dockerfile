@@ -3,7 +3,7 @@
 # All rights reserved.
 
 ### phase01-TLS-configurator ###
-FROM almalinux/8-minimal:8.8 as configurator
+FROM almalinux:8-minimal as configurator
 
 ARG DNF_PKGS="openssl"
 ARG CERTS_HOME=/opt/certs
@@ -21,7 +21,7 @@ RUN microdnf install -y $DNF_PKGS && \
     chmod 644 $CERTS_HOME/*
 
 ### phase02-HTTPD image ###
-FROM almalinux:8.8-minimal
+FROM almalinux:8-minimal
 
 ARG TARGETARCH
 
