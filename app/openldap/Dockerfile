@@ -101,6 +101,8 @@ COPY --chown=0:0 --chmod=755 $SCRIPT_SRC/ $SCRIPT_DEST/
 RUN unlink /etc/localtime && \
     ln -s /usr/share/zoneinfo/$TIMEZONE /etc/localtime && \
     microdnf install -y $BASE_PKGS && \
+    rpm -ivh https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm && \
+    microdnf install -y tini && \
     # uncomment to fix vulnerability
     #microdnf update -y && \
     microdnf clean all && \
@@ -116,4 +118,4 @@ WORKDIR $HOME
 
 EXPOSE 1389 1636
 
-ENTRYPOINT ["entrypoint.sh"]
+ENTRYPOINT ["tini", "--", "entrypoint.sh"]
