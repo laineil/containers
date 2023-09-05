@@ -23,8 +23,6 @@ RUN microdnf install -y $DNF_PKGS && \
 ### phase02-HTTPD image ###
 FROM almalinux:8-minimal
 
-ARG TARGETARCH
-
 ARG TIMEZONE=Asia/Taipei
 ARG BASE_PKGS="glibc-langpack-en shadow-utils"
 ARG EXTRA_PKGS="httpd mod_ssl"
