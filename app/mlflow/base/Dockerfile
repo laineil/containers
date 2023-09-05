@@ -4,8 +4,6 @@
 
 FROM almalinux:8-minimal
 
-ARG TARGETARCH
-
 ARG TIMEZONE=Asia/Taipei
 ARG BASE_PKGS="glibc-langpack-en shadow-utils"
 ARG CONDA_BIN=Minforge.sh
@@ -14,8 +12,8 @@ ENV CONDA_DIR=/opt/conda
 ENV SHELL=/bin/bash
 ENV MLFLOW_USER=mlflow
 ENV MLFLOW_UID=1000
-ENV HOME=/home/$MLFLOW_USER
 ENV MLFLOW_DATA=/volume/mlflow
+ENV HOME=/home/$MLFLOW_USER
 ENV LANG=en_US.UTF-8
 ENV PATH=$CONDA_DIR/bin:$PATH
 
@@ -30,6 +28,10 @@ RUN unlink /etc/localtime && \
     # Add call to conda init script see https://stackoverflow.com/a/58081608/4413446
     echo 'eval "$(command conda shell.bash hook 2> /dev/null)"' >> /etc/skel/.bashrc && \
     microdnf install -y $BASE_PKGS && \
+    rpm -ivh https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm && \
+    microdnf install -y tini && \
+    # uncomment to fix vulnerability
+    #microdnf update -y && \
     microdnf clean all && \
     useradd -u $MLFLOW_UID $MLFLOW_USER && \
     mkdir -p $CONDA_DIR $MLFLOW_DATA && \
