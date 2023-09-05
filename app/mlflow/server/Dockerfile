@@ -18,6 +18,8 @@ USER $MLFLOW_USER
 
 WORKDIR $HOME
 
+#WORKDIR $MLFLOW_DATA
+
 EXPOSE $MLF_PORT
 
-ENTRYPOINT ["entrypoint.sh"]
+ENTRYPOINT ["tini", "--", "entrypoint.sh"]
