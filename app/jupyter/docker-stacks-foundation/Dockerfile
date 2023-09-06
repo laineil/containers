@@ -6,8 +6,6 @@ FROM almalinux:8-minimal
 
 ARG TIMEZONE=Asia/Taipei
 ARG BASE_PKGS="glibc-langpack-en shadow-utils findutils sudo coreutils-common"
-ARG EPEL_RPM="https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm"
-ARG APP_PKGS="tini"
 ARG CONDA_BIN=Minforge.sh
 ARG SCRIPT_SRC=src/script
 ARG SCRIPT_DEST=/usr/local/bin
@@ -36,14 +34,17 @@ RUN unlink /etc/localtime && \
     # Add call to conda init script see https://stackoverflow.com/a/58081608/4413446
     echo 'eval "$(command conda shell.bash hook 2> /dev/null)"' >> /etc/skel/.bashrc && \
     microdnf install -y $BASE_PKGS && \
-    rpm -ivh $EPEL_RPM && \
-    microdnf install -y $APP_PKGS && \
+    rpm -ivh https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm && \
+    microdnf install -y tini && \
+    # uncomment to fix vulnerability
+    #microdnf update -y && \
     microdnf clean all && \
     # Create NB_USER with name jovyan user with UID=1000 and in the 'users' group
     # and make sure these dirs are writable by the `users` group.
     useradd $NB_USER -u $NB_UID -g $NB_GID && \
     mkdir -p $CONDA_DIR /usr/local/bin/start-notebook.d /usr/local/bin/before-notebook.d && \
     chown $NB_USER:$NB_GID $CONDA_DIR && \
+    #chmod g+w /etc/passwd && \
     fix-permissions $CONDA_DIR && \
     fix-permissions $HOME
 
@@ -55,7 +56,7 @@ RUN set -x && \
     # Setup work directory for backward-compatibility
     mkdir /home/$NB_USER/work && \
     # download the latest miniforge
-    curl -L https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-`uname -m`.sh -o $CONDA_BIN && \
+    curl -L https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-$(uname -m).sh -o $CONDA_BIN && \
     bash $CONDA_BIN -bfp $CONDA_DIR && \
     # remove the miniforge installation binary
     rm -f $CONDA_BIN && \
