@@ -5,10 +5,12 @@
 FROM almalinux:8-minimal
 
 ARG TIMEZONE=Asia/Taipei
-ARG BASE_PKGS="glibc-langpack-en shadow-utils findutils sudo coreutils-common"
+ARG BASE_PKGS="glibc-langpack-en shadow-utils findutils sudo"
 ARG CONDA_BIN=Minforge.sh
 ARG SCRIPT_SRC=src/script
 ARG SCRIPT_DEST=/usr/local/bin
+ARG CONF_SRC=src/conf
+ARG CONF_DEST=/etc/profile.d
 
 ENV CONDA_DIR=/opt/conda
 ENV SHELL=/bin/bash
@@ -26,11 +28,12 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 USER root
 
 COPY --chown=0:0 --chmod=755 $SCRIPT_SRC/ $SCRIPT_DEST/
+COPY --chown=0:0 --chmod=644 $CONF_SRC/ $CONF_DEST/
 
 RUN unlink /etc/localtime && \
     ln -s /usr/share/zoneinfo/$TIMEZONE /etc/localtime && \
     # enable prompt color in the skeleton .bashrc before creating the default NB_USER
-    echo "PS1='\[\033[1;30m\][\[\033[01;32m\]\u@\h\[\033[1;30m\]:\[\033[01;34m\]\w\[\033[1;30m\]]\[\033[00m\]\\$ '" >> /etc/skel/.bashrc && \
+    echo "PS1='\[\033[1;37m\][\[\033[01;32m\]\u@\h\[\033[1;30m\]:\[\033[01;34m\]\w\[\033[1;37m\]]\[\033[00m\]\\$ '" >> /etc/skel/.bashrc && \
     # Add call to conda init script see https://stackoverflow.com/a/58081608/4413446
     echo 'eval "$(command conda shell.bash hook 2> /dev/null)"' >> /etc/skel/.bashrc && \
     microdnf install -y $BASE_PKGS && \
