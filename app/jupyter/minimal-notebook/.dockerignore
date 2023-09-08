@@ -1,0 +1,5 @@
+# Ignore the doc
+# Ignore the docker compose files
+
+README.md
+docker-compose.yaml
