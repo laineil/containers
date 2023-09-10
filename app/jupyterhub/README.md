@@ -20,15 +20,15 @@ $ docker run -d \
 laineil/jupyterhub:[tag]
 ```
 
+## Verify
+
+- http://[server_host]:[expose_port]
+
 ## Logging
 
 ```bash
 $ docker logs jupyterhub_app
 ```
-
-## Verify
-
-- http://[server_host]:[expose_port]
 
 ## Remove
 
