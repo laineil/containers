@@ -25,8 +25,13 @@ Please visit the project documentation site for help to use and contribute to th
 - A modified edition of the Dockerfile based on [jupyter/docker-stacks](https://github.com/jupyter/docker-stacks).
 - Subscribe to project updates by watching the [laineil/containers GitHub repo](https://github.com/laineil/containers) for more information.
 
+## Image Relationships
+
+![image_relationships](https://github.com/laineil/containers/blob/main/app/jupyter/image_relationships.png) 
+
 ## License Agreement
 
 BSD 3-Clause License  
 Copyright (c) 2023, Laineil  
 All rights reserved.
+
