@@ -4,7 +4,7 @@
 
 GitHub Actions in the [laineil/containers/app/pysvc](https://github.com/laineil/containers/tree/main/app/pysvc) project builds and pushes this image to Docker Hub.
 
-Miniforge is a minimal installer for [Conda](https://conda.io/) specific to [conda-forge](https://conda-forge.org/).
+[Miniforge](https://github.com/conda-forge/miniforge) is a minimal installer for [Conda](https://conda.io/) specific to [conda-forge](https://conda-forge.org/).
 
 It allows you to install the conda package manager with the following features pre-configured:
 
