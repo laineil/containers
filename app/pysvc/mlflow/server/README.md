@@ -2,7 +2,7 @@
 
 ## About MLflow Server
 
-GitHub Actions in the [laineil/containers/app/mlflow](https://github.com/laineil/containers/tree/main/app/mlflow) project builds and pushes this image to Docker Hub.
+GitHub Actions in the [laineil/containers/app/pysvc](https://github.com/laineil/containers/tree/main/app/pysvc) project builds and pushes this image to Docker Hub.
 
 Please visit the project documentation site for help to use and contribute to this image and others.
 

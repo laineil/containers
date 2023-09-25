@@ -2,7 +2,7 @@
 
 ## About MLflow Base
 
-GitHub Actions in the [laineil/containers/app/mlflow](https://github.com/laineil/containers/tree/main/app/mlflow) project builds and pushes this image to Docker Hub.
+GitHub Actions in the [laineil/containers/app/pysvc](https://github.com/laineil/containers/tree/main/app/pysvc) project builds and pushes this image to Docker Hub.
 
 Please visit the project documentation site for help to use and contribute to this image and others.
 
@@ -13,7 +13,6 @@ Please visit the project documentation site for help to use and contribute to th
 ## Image information
 
 - The use of **non-root container images** can enhance system security.
-- Base images for the [laineil/containers/app/mlflow](https://github.com/laineil/containers/tree/main/app/mlflow) project.
 - Subscribe to project updates by watching the [laineil/containers GitHub repo](https://github.com/laineil/containers) for more information.
 
 ## Run a container
