@@ -76,7 +76,6 @@ RUN microdnf install -y $DNF_PKGS && \
 ### phase03-OpenLDAP image ###
 FROM almalinux:8-minimal
 
-ARG TIMEZONE=Asia/Taipei
 ARG BASE_PKGS="glibc-langpack-en shadow-utils libtool-ltdl"
 ARG PHASE_SRC=/opt
 ARG LDAP_CONF=/volume/openldap/slapd.d
@@ -98,9 +97,7 @@ USER root
 COPY --from=configurator $PHASE_SRC $PHASE_SRC
 COPY --chown=0:0 --chmod=755 $SCRIPT_SRC/ $SCRIPT_DEST/
 
-RUN unlink /etc/localtime && \
-    ln -s /usr/share/zoneinfo/$TIMEZONE /etc/localtime && \
-    microdnf install -y $BASE_PKGS && \
+RUN microdnf install -y $BASE_PKGS && \
     rpm -ivh https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm && \
     microdnf install -y tini && \
     # uncomment to fix vulnerability
