@@ -4,7 +4,6 @@
 
 FROM almalinux:8-minimal
 
-ARG TIMEZONE=Asia/Taipei
 ARG BASE_PKGS="glibc-langpack-en pam"
 
 ENV CONDA_DIR=/opt/conda
@@ -21,8 +20,6 @@ USER root
 WORKDIR /tmp
 
 RUN set -x && \
-    unlink /etc/localtime && \
-    ln -s /usr/share/zoneinfo/$TIMEZONE /etc/localtime && \
     # Add call to conda init script see https://stackoverflow.com/a/58081608/4413446
     echo 'eval "$(command conda shell.bash hook 2> /dev/null)"' >> /root/.bashrc && \
     microdnf install -y $BASE_PKGS && \
