@@ -3,7 +3,7 @@
 # All rights reserved.
 
 ### phase01-TLS-configurator ###
-FROM almalinux:8-minimal as configurator
+FROM almalinux:9-minimal as configurator
 
 ARG DNF_PKGS="openssl"
 ARG CERTS_HOME=/opt/certs
@@ -21,9 +21,8 @@ RUN microdnf install -y $DNF_PKGS && \
     chmod 644 $CERTS_HOME/*
 
 ### phase02-HTTPD image ###
-FROM almalinux:8-minimal
+FROM almalinux:9-minimal
 
-ARG TIMEZONE=Asia/Taipei
 ARG BASE_PKGS="glibc-langpack-en shadow-utils"
 ARG EXTRA_PKGS="httpd mod_ssl"
 ARG PHASE_SRC=/opt/certs
@@ -56,9 +55,7 @@ USER root
 COPY --from=configurator $PHASE_SRC $PHASE_SRC
 COPY --chown=0:0 --chmod=755 $SCRIPT_SRC/ $SCRIPT_DEST/
 
-RUN unlink /etc/localtime && \
-    ln -s /usr/share/zoneinfo/$TIMEZONE /etc/localtime && \
-    microdnf install -y $BASE_PKGS && \
+RUN microdnf install -y $BASE_PKGS && \
     useradd -u $APACHE_UID $APACHE_USER && \
     rpm -ivh https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm && \
     microdnf install -y tini $EXTRA_PKGS && \
