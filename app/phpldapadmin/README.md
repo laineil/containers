@@ -13,6 +13,7 @@ You might also like to see [About](https://phpldapadmin.sourceforge.net/wiki/ind
 ## Image information
 
 - The use of **non-root container images** can enhance system security.
+- Support the **TZ** environment variable to set up the desired timezone (see [Services top-level element](https://docs.docker.com/compose/compose-file/05-services/)).
 - Base on [Apache HTTPD versions supported by Red Hat](https://access.redhat.com/solutions/445713).
 - Base on [phpLDAPadmin version support by Extra Packages for Enterprise Linux (EPEL)](https://docs.fedoraproject.org/en-US/epel/).
 - By default, a **self-signed TLS certificate** is supplied.

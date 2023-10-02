@@ -9,10 +9,9 @@ Some applications containerized and ready to launch, provided by Laineil.
 Some key tips about the laineil container images:
 
 - Support **x86_64** | **arm64** | **ppc64le**.
-
 - Based on **Alma Linux minimal** | **Rocky Linux minimal** | **Red Hat UBI minimal**.
-
 - The use of **non-root container images** can enhance system security.
+- Support the **TZ** environment variable to set up the desired timezone (see [Services top-level element](https://docs.docker.com/compose/compose-file/05-services/)).
 
 ## Acquiring an image
 

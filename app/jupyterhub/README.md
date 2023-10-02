@@ -8,6 +8,7 @@ With [JupyterHub](https://jupyterhub.readthedocs.io/) you can create a **multi-u
 
 ## Image information
 
+- Support the **TZ** environment variable to set up the desired timezone (see [Services top-level element](https://docs.docker.com/compose/compose-file/05-services/)).
 - A modified edition of the Dockerfile based on [jupyterhub/jupyterhub](https://github.com/jupyterhub/jupyterhub).
 - Subscribe to project updates by watching the [laineil/containers GitHub repo](https://github.com/laineil/containers) for more information.
 

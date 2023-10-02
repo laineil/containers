@@ -15,6 +15,7 @@ GitHub Actions in the [laineil/containers/app/pysvc](https://github.com/laineil/
 ## Image information
 
 - The use of **non-root container images** can enhance system security.
+- Support the **TZ** environment variable to set up the desired timezone (see [Services top-level element](https://docs.docker.com/compose/compose-file/05-services/)).
 - Subscribe to project updates by watching the [laineil/containers GitHub repo](https://github.com/laineil/containers) for more information.
 
 ## Image Relationships

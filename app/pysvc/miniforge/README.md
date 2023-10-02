@@ -17,6 +17,7 @@ It can be compared to the [Miniconda](https://docs.conda.io/en/latest/miniconda.
 ## Image information
 
 - The use of **non-root container images** can enhance system security.
+- Support the **TZ** environment variable to set up the desired timezone (see [Services top-level element](https://docs.docker.com/compose/compose-file/05-services/)).
 - Subscribe to project updates by watching the [laineil/containers GitHub repo](https://github.com/laineil/containers) for more information.
 
 ## Run a container

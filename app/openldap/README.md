@@ -7,19 +7,14 @@
 The suite includes:
 
 - [lloadd](https://www.openldap.org/software/man.cgi?query=lloadd) - stand-alone LDAP Load Balancer Daemon (server or slapd module)
-
 - [slapd](https://www.openldap.org/software/man.cgi?query=slapd) - stand-alone LDAP daemon (server)
-
-- [libraries](https://www.openldap.org/software/man.cgi?query=ldap) implementing the LDAP protocol, and
-
-- utilities, tools, and sample clients.
+- [libraries](https://www.openldap.org/software/man.cgi?query=ldap) implementing the LDAP protocol, and utilities, tools, and sample clients.
 
 ## Image information
 
 - The use of **non-root container images** can enhance system security.
-
+- Support the **TZ** environment variable to set up the desired timezone (see [Services top-level element](https://docs.docker.com/compose/compose-file/05-services/)).
 - Use [**pqchecker**](http://www.meddeb.net/pqchecker/) to implement complex password policies.
-
 - By default, a **self-signed TLS certificate** is supplied.
 - Subscribe to project updates by watching the [laineil/containers GitHub repo](https://github.com/laineil/containers) for more information.
 
