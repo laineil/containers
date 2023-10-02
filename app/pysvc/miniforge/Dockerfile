@@ -4,7 +4,6 @@
 
 FROM almalinux:8-minimal
 
-ARG TIMEZONE=Asia/Taipei
 ARG BASE_PKGS="glibc-langpack-en shadow-utils"
 ARG CONDA_BIN=Minforge.sh
 
@@ -21,10 +20,8 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 USER root
 
-RUN unlink /etc/localtime && \
-    ln -s /usr/share/zoneinfo/$TIMEZONE /etc/localtime && \
-    # Add call to conda init script see https://stackoverflow.com/a/58081608/4413446
-    echo 'eval "$(command conda shell.bash hook 2> /dev/null)"' >> /etc/skel/.bashrc && \
+# Add call to conda init script see https://stackoverflow.com/a/58081608/4413446
+RUN echo 'eval "$(command conda shell.bash hook 2> /dev/null)"' >> /etc/skel/.bashrc && \
     microdnf install -y $BASE_PKGS && \
     rpm -ivh https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm && \
     microdnf install -y tini && \
