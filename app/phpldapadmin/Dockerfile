@@ -24,7 +24,6 @@ RUN microdnf install -y $DNF_PKGS && \
 ### phase02-phpLDAPadmin image ###
 FROM almalinux:8-minimal
 
-ARG TIMEZONE=Asia/Taipei
 ARG BASE_PKGS="glibc-langpack-en shadow-utils"
 ARG EXTRA_PKGS="httpd mod_ssl phpldapadmin supervisor"
 ARG PHASE_SRC=/opt/certs
@@ -67,9 +66,7 @@ COPY --from=configurator $PHASE_SRC $PHASE_SRC
 COPY --chown=0:0 --chmod=755 $SCRIPT_SRC/ $SCRIPT_DEST/
 COPY --chown=0:0 --chmod=644 $CONF_SRC/ $CONF_DEST/
 
-RUN unlink /etc/localtime && \
-    ln -s /usr/share/zoneinfo/$TIMEZONE /etc/localtime && \
-    microdnf install -y $BASE_PKGS && \
+RUN microdnf install -y $BASE_PKGS && \
     useradd -u $APACHE_UID $APACHE_USER && \
     rpm -ivh https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm && \
     microdnf install -y tini $EXTRA_PKGS && \
