@@ -46,6 +46,8 @@ ARG SERVER_CRT=/opt/certs/server.crt
 ARG SERVER_KEY=/opt/certs/server.key
 ARG SCRIPT_SRC=src/script
 ARG SCRIPT_DEST=/opt/script
+ARG STDOUT_LOG=/proc/self/fd/1
+ARG STDERR_LOG=/proc/self/fd/2
 
 ENV LANG=en_US.UTF-8
 ENV PATH=$SCRIPT_DEST:$PATH
@@ -73,10 +75,15 @@ USER $APACHE_UID
 WORKDIR $HOME
 
 RUN sed -i "s/80/$INT_HTTP_PORT/g" $HTTPD_CONF && \
+    sed -i "s|logs/access_log|$STDOUT_LOG|g" $HTTPD_CONF && \
+    sed -i "s|logs/error_log|$STDERR_LOG|g" $HTTPD_CONF && \
     sed -i "s/443/$INT_HTTPS_PORT/g" $SSL_CONF && \
     sed -i "s|$LOCALHOST_CA|$ROOT_CA|g" $SSL_CONF && \
     sed -i "s|$LOCALHOST_CRT|$SERVER_CRT|g" $SSL_CONF && \
-    sed -i "s|$LOCALHOST_KEY|$SERVER_KEY|g" $SSL_CONF
+    sed -i "s|$LOCALHOST_KEY|$SERVER_KEY|g" $SSL_CONF && \
+    sed -i "s|logs/ssl_access_log|$STDOUT_LOG|g" $SSL_CONF && \
+    sed -i "s|logs/ssl_request_log|$STDOUT_LOG|g" $SSL_CONF && \
+    sed -i "s|logs/ssl_error_log|$STDERR_LOG|g" $SSL_CONF
 
 EXPOSE $INT_HTTP_PORT $INT_HTTPS_PORT
 

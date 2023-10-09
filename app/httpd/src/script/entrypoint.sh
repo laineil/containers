@@ -23,7 +23,7 @@ print_env_table
 
 # start httpd with container startup
 info "** Starting Apache HTTPD **"
-httpd -f $HTTPD_CONF -DFOREGROUND -e $HTTPD_LOG_LEVEL
+httpd -f $HTTPD_CONF -D FOREGROUND -e $HTTPD_LOG_LEVEL
 
 # end
 exec "$@"
