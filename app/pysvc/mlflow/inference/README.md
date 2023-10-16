@@ -24,7 +24,7 @@ The container can be easily setup with the following environment variables:
 - `MLF_WORKERS`: Number of gunicorn worker processes to handle requests. Default: **1**
 - `MLF_EX_MODEL`: Whether to enable mlflow example model (see [mlflow-example](https://github.com/mlflow/mlflow-example)) or not. Default: **enable** (disable)
 - `MLF_MODEL_URI`: Set up the model URI (see [Storage Format](https://mlflow.org/docs/latest/models.html#storage-format)). Default: **exmodel**
-  - tip: `MLF_EX_MODEL`=enable <=> `MLF_MODEL_URL`=exmodel
+  - tip: **MLF_EX_MODEL**=**enable** <=> **MLF_MODEL_URL**=**exmodel**
 
 ## Run a container
 
