@@ -54,7 +54,7 @@ laineil/mlflow-inference:[tag]
 - Use curl to test
 
 ```bash
-$ curl -X POST http://localhost:5001/invocations -H "Content-Type:application/json" -d '{"dataframe_split": {"columns":["fixed acidity", "volatile acidity", "citric acid", "residual sugar", "chlorides", "free sulfur dioxide", "total sulfur dioxide", "density", "pH", "sulphates", "alcohol"],"data":[[6.2, 0.66, 0.48, 1.2, 0.029, 29, 75, 0.98, 3.33, 0.39, 12.8]]}}'
+$ curl -X POST http://[server_host]:[expose_port]/invocations -H "Content-Type:application/json" -d '{"dataframe_split": {"columns":["fixed acidity", "volatile acidity", "citric acid", "residual sugar", "chlorides", "free sulfur dioxide", "total sulfur dioxide", "density", "pH", "sulphates", "alcohol"],"data":[[6.2, 0.66, 0.48, 1.2, 0.029, 29, 75, 0.98, 3.33, 0.39, 12.8]]}}'
 ```
 
 - Result
