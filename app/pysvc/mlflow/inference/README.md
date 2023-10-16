@@ -33,7 +33,6 @@ The container can be easily setup with the following environment variables:
 ```bash
 $ docker run -it \
 --name mlflow_infrence \
--v mlflow_volume:/volume/mlflow \
 -p [expose_port]:5000 \
 laineil/mlflow-inference:[tag]
 ```
@@ -43,7 +42,7 @@ laineil/mlflow-inference:[tag]
 ```bash
 $ docker run -it \
 --name mlflow_infrence \
--v mlflow_volume:/volume/mlflow \
+-v [model_uri_path]:/volume/mlflow/[model_uri] \
 -p [expose_port]:5000 \
 -e MLF_EX_MODEL=disable \
 -e MLF_MODEL_URI=[model_uri] \
