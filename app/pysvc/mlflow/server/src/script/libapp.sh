@@ -8,6 +8,7 @@
 
 ### default artifact root ###
 mlflow_artifact_root() {
+    info "Artifact root being set..."
     if [[ $MLF_ARTIFACT_ROOT == "disable" ]]; then
         export MLF_ARTIFACT_ROOT_ARGS=""
     elif [[ $MLF_ARTIFACT_ROOT == "enable" ]]; then
@@ -24,6 +25,7 @@ mlflow_artifact_root() {
 
 ### expose prometheus ###
 mlflow_prometheus() {
+    info "Prometheus exporter being set..."
     if [[ $MLF_PROMETHEUS == "disable" ]]; then
         export MLF_PROMETHEUS_ARGS=""
     elif [[ $MLF_PROMETHEUS == "enable" ]]; then
@@ -36,6 +38,7 @@ mlflow_prometheus() {
 
 ### debug mode ###
 mlflow_debug() {
+    info "Debug logging being set..."
     if [[ $MLF_DEBUG == "disable" ]]; then
         export MLF_DEBUG_ARGS=""
     elif [[ $MLF_DEBUG == "enable" ]]; then
@@ -46,12 +49,26 @@ mlflow_debug() {
     fi
 }
 
+### app name ###
+# This feature is still experimental and may change in a future release without warning.
+mlflow_auth() {
+    info "Authentication being set..."
+    if [[ "$MLF_AUTH" == "disable" ]]; then
+        export MLF_AUTH_ARGS=""
+    elif [[ "$MLF_AUTH" == "enable" ]]; then
+        export MLF_AUTH_ARGS="--app-name $MLF_APP_NAME"
+    else
+        error "MLF_AUTH setting is incorrect."
+        exit 1
+    fi
+}
+
 ### set up mlflow server ###
 mlflow_setup() {
-    info "** Starting MLflow setup **"
+    info "** Starting MLflow server setup **"
     mlflow_artifact_root
     mlflow_prometheus
     mlflow_debug
-    #mlflow_auth
-    info "** MLflow setup finished **"
+    mlflow_auth
+    info "** MLflow server setup finished **"
 }

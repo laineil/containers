@@ -28,6 +28,8 @@ The container can be easily setup with the following environment variables:
 - `MLF_DEFAULT_ARTIFACT_ROOT`: If MLF_ARTIFACT_ROOT is enabled, it will take effect. Directory in which to store artifacts for any new experiments created. For tracking server backends that rely on SQL, this option is required in order to store artifacts. Note that this flag does not impact already-created experiments with any previous configuration of an MLflow server instance. Default: **none**
 - `MLF_PROMETHEUS`: Whether to enable `--expose-prometheus <expose_prometheus>` or not. Default: **disable** (enable)
 - `MLF_EXPORSE_PROMETHEUS`: If MLF_PROMETHEUS is enabled, it will take effect. Specify the path to the directory where metrics will be stored. If the directory doesn't exist, it will be created. Default: **/volume/mlflow/metrics**
+- `MLF_AUTH`: Basic HTTP authentication to enable access control over experiments and registered models (see [MLflow Authentication](https://mlflow.org/docs/latest/auth/index.html)). Default: **disable**
+- `MLF_APP_NAME`: This value is required if MLF_AUTH is enabled (see [MLflow Authentication Overview](https://mlflow.org/docs/latest/auth/index.html#overview)). Default: **basic-auth**
 - `MLF_DEBUG`: Whether to enable debug mode or not. Default: **disable** (enable)
 
 ## Run a container
@@ -39,6 +41,28 @@ $ docker run -it \
 --name mlflow_server \
 -v mlflow_volume:/volume/mlflow \
 -p [expose_port]:5000 \
+laineil/mlflow-server:[tag]
+```
+
+- Set the number of gunicorn worker processes
+
+```bash
+$ docker run -it \
+--name mlflow_server \
+-v mlflow_volume:/volume/mlflow \
+-p [expose_port]:5000 \
+-e MLF_WORKERS=[number] \
+laineil/mlflow-server:[tag]
+```
+
+- With http Authentication
+
+```bash
+$ docker run -it \
+--name mlflow_server \
+-v mlflow_volume:/volume/mlflow \
+-p [expose_port]:5000 \
+-e MLF_AUTH=enable \
 laineil/mlflow-server:[tag]
 ```
 

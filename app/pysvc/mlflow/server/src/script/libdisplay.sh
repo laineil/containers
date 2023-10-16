@@ -34,5 +34,9 @@ print_env_table() {
         print_env_value MLF_EXPORSE_PROMETHEUS $MLF_EXPORSE_PROMETHEUS
     fi
     print_env_value MLF_DEBUG $MLF_DEBUG
+    print_env_value MLF_AUTH $MLF_AUTH
+    if [[ $MLF_AUTH == "enable" ]]; then
+        print_env_value MLF_APP_NAME $MLF_APP_NAME
+    fi
     printf "${BLUE}-------------- END --------------${NC}\n"
 }
