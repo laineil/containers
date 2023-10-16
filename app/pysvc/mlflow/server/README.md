@@ -44,17 +44,6 @@ $ docker run -it \
 laineil/mlflow-server:[tag]
 ```
 
-- Set the number of gunicorn worker processes
-
-```bash
-$ docker run -it \
---name mlflow_server \
--v mlflow_volume:/volume/mlflow \
--p [expose_port]:5000 \
--e MLF_WORKERS=[number] \
-laineil/mlflow-server:[tag]
-```
-
 - With http Authentication
 
 ```bash
