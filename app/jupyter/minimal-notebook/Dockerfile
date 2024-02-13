@@ -22,16 +22,16 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 USER root
 
-# Install all OS dependencies for Server that starts but lacks all
+# Install all OS dependencies for a fully functional Server
 # features (e.g., download as all possible file formats)
-RUN microdnf install -y $BASE_PKGS && \
+RUN microdnf install -y ${BASE_PKGS} && \
     microdnf clean all
 
 # Switch back to jovyan to avoid accidental container runs as root
-USER $NB_UID
+USER ${NB_UID}
 
-# Add R mimetype option to specify how the plot returns from R to the browser
-COPY --chown=$NB_UID:$NB_GID --chmod=644 $CONF_SRC $CONF_DEST
+# Add an R mimetype option to specify how the plot returns from R to the browser
+COPY --chown=${NB_UID}:${NB_GID} --chmod=644 ${CONF_SRC} ${CONF_DEST}
 
 # Add setup scripts that may be used by downstream images or inherited images
-COPY --chown=0:0 --chmod=755 $SCRIPT_SRC $SCRIPT_DEST
+COPY --chown=0:0 --chmod=755 ${SCRIPT_SRC} ${SCRIPT_DEST}
