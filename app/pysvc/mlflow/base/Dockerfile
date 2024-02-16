@@ -12,15 +12,15 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 USER root
 
-RUN mkdir -p $MLFLOW_DATA && \
-    chown $MAMBA_UID:0 $MLFLOW_DATA
+RUN mkdir -p ${MLFLOW_DATA} && \
+    chown ${CONDA_UID}:0 ${MLFLOW_DATA}
 
-USER $MAMBA_USER
+USER ${CONDA_USER}
 
-WORKDIR $HOME
+WORKDIR ${HOME}
 
 RUN mamba install -qy \
     mlflow && \
     mamba clean -afy
 
-WORKDIR $HOME
+WORKDIR ${HOME}
