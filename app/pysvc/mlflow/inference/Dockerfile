@@ -10,22 +10,22 @@ ARG MLF_MODEL_SRC=src/exmodel
 ARG MLF_MODEL_DEST=/volume/mlflow/exmodel
 
 ENV MLF_PORT=5000
-ENV PATH=$SCRIPT_DEST:$PATH
+ENV PATH=${SCRIPT_DEST}:$PATH
 
 USER root
 
-COPY --chown=0:0 --chmod=755 $SCRIPT_SRC/ $SCRIPT_DEST/
-COPY --chown=1000:1000 $MLF_MODEL_SRC/ $MLF_MODEL_DEST/
+COPY --chown=0:0 --chmod=755 ${SCRIPT_SRC} ${SCRIPT_DEST}
+COPY --chown=1000:1000 ${MLF_MODEL_SRC} ${MLF_MODEL_DEST}
 
-USER $MAMBA_USER
+USER ${CONDA_USER}
 
 RUN mamba install -qy \
     lz4 \
     psutil && \
     mamba clean -afy
 
-WORKDIR $MLFLOW_DATA
+WORKDIR ${MLFLOW_DATA}
 
-EXPOSE $MLF_PORT
+EXPOSE ${MLF_PORT}
 
 ENTRYPOINT ["tini", "--", "entrypoint.sh"]

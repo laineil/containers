@@ -21,7 +21,7 @@ print_env_table
 # start mlflow models serve with container startup
 info "** Starting MLflow Models Serve **"
 
-mlflow models serve --no-conda --host $MLF_HOST --port $MLF_PORT --workers $MLF_WORKERS --model-uri $MLF_MODEL_URI
+mlflow models serve --no-conda --host $MLF_HOST --port $MLF_PORT --workers $MLF_WORKERS --timeout $MLF_TIMEOUT --model-uri $MLF_MODEL_URI
 
 # end
 exec "$@"

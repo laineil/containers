@@ -23,6 +23,7 @@ print_env_value() {
 print_env_table() {
     printf "${BLUE}--------- CHECK ENV VAR ---------${NC}\n"
     print_env_value MLF_WORKERS $MLF_WORKERS
+    print_env_value MLF_TIMEOUT $MLF_TIMEOUT
     print_env_value MLF_EX_MODEL $MLF_EX_MODEL
     print_env_value MLF_MODEL_URI $MLF_MODEL_URI
     printf "${BLUE}-------------- END --------------${NC}\n"

@@ -10,5 +10,6 @@ export MLF_EX_MODEL_PATH=/volume/mlflow/$MLF_EX_MODEL_URI
 
 # dynamic var
 export MLF_WORKERS="${MLF_WORKERS:-1}"
+export MLF_TIMEOUT="${MLF_TIMEOUT:-60}"
 export MLF_EX_MODEL="${MLF_EX_MODEL:-enable}"
 export MLF_MODEL_URI="${MLF_MODEL_URI:-$MLF_EX_MODEL_URI}"
