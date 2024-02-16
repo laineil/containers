@@ -16,13 +16,13 @@ BLUE='\033[38;5;4m'
 
 # print ENV var setting with color
 print_env_value() {
-    printf "$1 = ${YELLOW}$2${NC}\n"
+    printf "${1} = ${YELLOW}${2}${NC}\n"
 }
 
 # print ENV var setting table
 print_env_table() {
     printf "${BLUE}--------- CHECK ENV VAR ---------${NC}\n"
-    print_env_value HTTPD_LOG_LEVEL $HTTPD_LOG_LEVEL
-    print_env_value HTTPD_TLS_ROOTCA $HTTPD_TLS_ROOTCA
+    print_env_value HTTPD_LOG_LEVEL ${HTTPD_LOG_LEVEL}
+    print_env_value HTTPD_TLS_ROOTCA ${HTTPD_TLS_ROOTCA}
     printf "${BLUE}-------------- END --------------${NC}\n"
 }
