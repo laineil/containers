@@ -23,30 +23,22 @@ The suite includes:
 The container can be easily setup with the following environment variables:
 
 - `LDAP_LOG_LEVEL`: Set the log level for the OpenLDAP server (see [The slapd Configuration File - loglevel](https://www.openldap.org/doc/admin25/slapdconfig.html) for possible values). Default: **256**
-
 - `LDAP_FE_ADMIN_PWD`: LDAP frontend (config) admin password. Default: **Config@123**
-
 - `LDAP_BE_ADMIN_PWD`: LDAP backend (mdb) admin password. Default: **Admin@123**
-
 - `LDAP_TLS`: Whether to enable TLS for traffic or not. Default: **disable** (enable)
   - enable: 
     - Supply a **self-signed TLS certificate (with CA)**. You can replace the certificate with your own.
     - certs dir: **/opt/certs**
     - certs files: **rootca.crt**, **server.crt**, **server.key**
-
 - `LDAP_ANON_BIND`: Allow anonymous bindings to the LDAP server. Default: **enable** (disable)
-
 - `LDAP_BASE_DN`: LDAP baseDN of the tree. Default: **dc=example,dc=org**
-
 - `LDAP_EX_TREE`: LDAP example tree for testing. Default: **enable** (disable)
-
 - `LDAP_ACS_RULE`: Only when **LDAP_EX_TREE=enable** is valid. LDAP access rules. Default: **flexible** (strict)
   - flexible: self **write**, users/anonymous **read**.
   - strict: self **write**, services group **read**, users/anonymous **none**.
-
 - `LDAP_PWD_POLICY`: Only when **LDAP_EX_TREE=enable** is valid. LDAP password policy. Default: **disable** (enable)
   - enable: 
-    - The default password configuration must contain at least one **uppercase letter**, one **lowercase letter**, one **number**, and one **special character**, with a minimum length of **8** characters.
+    - The default password configuration must contain at least one **uppercase letter**, one **lowercase letter**, one **number**, and one **special character**, with a minimum length of **8** characters and maximum length of **30** characters .
     - Passwords expire after **90** days.
     - The system remembers the last **5** passwords.
     - If there are **5** consecutive incorrect password attempts, the account will be locked for five minutes.

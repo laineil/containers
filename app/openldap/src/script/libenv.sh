@@ -4,10 +4,10 @@
 
 # system ldap
 export LDAP_HOME=/opt/openldap
-export LDAP_SLAPD=$LDAP_HOME/libexec/slapd
+export LDAP_SLAPD=${LDAP_HOME}/libexec/slapd
 export LDAP_URLS="ldapi:// ldap://:1389 ldaps://:1636"
 export LDAP_CONF_DIR=/volume/openldap/slapd.d
-export LDAP_PID_FILE=$LDAP_HOME/var/run/slapd.pid
+export LDAP_PID_FILE=${LDAP_HOME}/var/run/slapd.pid
 export LDAP_LDIF_TMP=/tmp/ldif
 
 # dynamic var
