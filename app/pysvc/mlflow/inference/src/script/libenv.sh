@@ -6,7 +6,7 @@
 export MLF_HOST=0.0.0.0
 export MLF_PORT=5000
 export MLF_EX_MODEL_URI=exmodel
-export MLF_EX_MODEL_PATH=/volume/mlflow/$MLF_EX_MODEL_URI
+export MLF_EX_MODEL_PATH=/volume/mlflow/${MLF_EX_MODEL_URI}
 
 # dynamic var
 export MLF_WORKERS="${MLF_WORKERS:-1}"

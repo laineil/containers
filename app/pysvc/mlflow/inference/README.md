@@ -60,7 +60,7 @@ $ curl -X POST http://[server_host]:[expose_port]/invocations -H "Content-Type:a
 - Result
 
 ```bash
-{"predictions": [6.142794103046581]}
+{"predictions": [x.xxxxxxxxxxxxxxx]}
 ```
 
 ## Logging
