@@ -5,6 +5,7 @@
 FROM almalinux:8-minimal
 
 ARG BASE_PKGS="glibc-langpack-en pam"
+ARG CONDA_BIN=Minforge.sh
 
 ENV CONDA_DIR=/opt/conda
 ENV SHELL=/bin/bash
