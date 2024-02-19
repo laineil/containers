@@ -13,7 +13,7 @@ set -o pipefail
 . /opt/script/libdisplay.sh
 
 # clean up proccess
-rm -rf $HTTPD_PID_FILE
+rm -rf ${HTTPD_PID_FILE}
 
 # set up apache httpd
 httpd_setup
@@ -26,7 +26,7 @@ print_env_table
 
 # start httpd with container startup
 info "** Starting phpLDAPadmin **"
-supervisord -c $SUPERVISORD_CONF
+supervisord -c ${SUPERVISORD_CONF}
 
 # end
 exec "$@"
