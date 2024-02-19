@@ -77,10 +77,6 @@ RUN microdnf install -y ${BASE_PKGS} && \
 ### phase03-OpenLDAP image ###
 FROM almalinux:8-minimal
 
-ARG TARGETARCH
-
-LABEL app=openldap verson=2.5.17 release=r2 date=240216 arch=${TARGETARCH} maintainer="<https://github.com/laineil>"
-
 ARG BASE_PKGS="glibc-langpack-en shadow-utils libtool-ltdl"
 ARG PHASE_SRC=/opt
 ARG LDAP_CONF=/volume/openldap/slapd.d
