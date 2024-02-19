@@ -20,9 +20,7 @@ print_env_table
 
 # start mlflow server with container startup
 info "** Starting MLflow Server **"
-#mlflow server --backend-store-uri $MLF_BACKEND_STORE_UIR --artifacts-destination $MLFLOW_ARTIACTS_DESTINATION --host $MLF_HOST --port $MLF_PORT --workers $MLF_WORKERS $MLF_ARTIFACT_ROOT_ARGS $MLF_PROMETHEUS_ARGS $MLF_DEBUG_ARGS
-
-mlflow server --backend-store-uri $MLF_BACKEND_STORE_UIR --artifacts-destination $MLFLOW_ARTIACTS_DESTINATION --host $MLF_HOST --port $MLF_PORT --workers $MLF_WORKERS $MLF_ARTIFACT_ROOT_ARGS $MLF_PROMETHEUS_ARGS $MLF_DEBUG_ARGS $MLF_AUTH_ARGS
+mlflow server --backend-store-uri ${MLF_BACKEND_STORE_UIR} --artifacts-destination ${MLFLOW_ARTIACTS_DESTINATION} --host ${MLF_HOST} --port ${MLF_PORT} --workers ${MLF_WORKERS} ${MLF_ARTIFACT_ROOT_ARGS} ${MLF_PROMETHEUS_ARGS} ${MLF_DEBUG_ARGS} ${MLF_AUTH_ARGS}
 
 # end
 exec "$@"

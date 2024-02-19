@@ -16,27 +16,27 @@ BLUE='\033[38;5;4m'
 
 # print ENV var setting with color
 print_env_value() {
-    printf "$1 = ${YELLOW}$2${NC}\n"
+    printf "${1} = ${YELLOW}${2}${NC}\n"
 }
 
 # print ENV var setting table
 print_env_table() {
     printf "${BLUE}--------- CHECK ENV VAR ---------${NC}\n"
-    print_env_value MLF_BACKEND_STORE_UIR $MLF_BACKEND_STORE_UIR
-    print_env_value MLFLOW_ARTIACTS_DESTINATION $MLFLOW_ARTIACTS_DESTINATION
-    print_env_value MLF_WORKERS $MLF_WORKERS
-    print_env_value MLF_ARTIFACT_ROOT $MLF_ARTIFACT_ROOT
-    if [[ $MLF_ARTIFACT_ROOT == "enable" ]]; then
-        print_env_value MLF_DEFAULT_ARTIFACT_ROOT $MLF_DEFAULT_ARTIFACT_ROOT
+    print_env_value MLF_BACKEND_STORE_UIR ${MLF_BACKEND_STORE_UIR}
+    print_env_value MLFLOW_ARTIACTS_DESTINATION ${MLFLOW_ARTIACTS_DESTINATION}
+    print_env_value MLF_WORKERS ${MLF_WORKERS}
+    print_env_value MLF_ARTIFACT_ROOT ${MLF_ARTIFACT_ROOT}
+    if [[ ${MLF_ARTIFACT_ROOT} == "enable" ]]; then
+        print_env_value MLF_DEFAULT_ARTIFACT_ROOT ${MLF_DEFAULT_ARTIFACT_ROOT}
     fi
-    print_env_value MLF_PROMETHEUS $MLF_PROMETHEUS
-    if [[ $MLF_PROMETHEUS == "enable" ]]; then
-        print_env_value MLF_EXPORSE_PROMETHEUS $MLF_EXPORSE_PROMETHEUS
+    print_env_value MLF_PROMETHEUS ${MLF_PROMETHEUS}
+    if [[ ${MLF_PROMETHEUS} == "enable" ]]; then
+        print_env_value MLF_EXPORSE_PROMETHEUS ${MLF_EXPORSE_PROMETHEUS}
     fi
-    print_env_value MLF_DEBUG $MLF_DEBUG
-    print_env_value MLF_AUTH $MLF_AUTH
-    if [[ $MLF_AUTH == "enable" ]]; then
-        print_env_value MLF_APP_NAME $MLF_APP_NAME
+    print_env_value MLF_DEBUG ${MLF_DEBUG}
+    print_env_value MLF_AUTH ${MLF_AUTH}
+    if [[ ${MLF_AUTH} == "enable" ]]; then
+        print_env_value MLF_APP_NAME ${MLF_APP_NAME}
     fi
     printf "${BLUE}-------------- END --------------${NC}\n"
 }
