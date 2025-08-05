@@ -3,11 +3,11 @@
 # All rights reserved.
 
 ### phase01-compiler ###
-FROM almalinux:8-minimal as compiler
+FROM almalinux:9-minimal AS compiler
 
 ARG JAVA_VERSION=1.8.0
 ARG BASE_PKGS="diffutils findutils wget tar make gcc openssl-devel groff-base cyrus-sasl-devel libtool libtool-ltdl-devel git java-${JAVA_VERSION}-openjdk java-${JAVA_VERSION}-openjdk-devel"
-ARG LDAP_VERSION=2.5.17
+ARG LDAP_VERSION=2.6.10
 ARG LDAP_BIN_URL=https://www.openldap.org/software/download/OpenLDAP/openldap-release/openldap-${LDAP_VERSION}.tgz
 ARG LDAP_HOME=/opt/openldap
 ARG PQCHECKER_URL=https://bitbucket.org/ameddeb/pqchecker.git
@@ -17,6 +17,7 @@ USER root
 WORKDIR /tmp
 
 RUN set -x && \
+    sed -i "s/enabled=0/enabled=1/g" /etc/yum.repos.d/almalinux-crb.repo && \
     microdnf install -y ${BASE_PKGS} && \
     microdnf clean all && \
     # download openldap source
@@ -54,7 +55,7 @@ RUN set -x && \
     make install ${LDAP_HOME}/etc/openldap/pqchecker
 
 ### phase02-TLS-configurator ###
-FROM almalinux:8-minimal as configurator
+FROM almalinux:9-minimal AS configurator
 
 ARG BASE_PKGS="openssl"
 ARG CERTS_HOME=/opt/certs
@@ -75,7 +76,7 @@ RUN microdnf install -y ${BASE_PKGS} && \
     chmod 644 ${CERTS_HOME}/*
 
 ### phase03-OpenLDAP image ###
-FROM almalinux:8-minimal
+FROM almalinux:9-minimal
 
 ARG BASE_PKGS="glibc-langpack-en shadow-utils libtool-ltdl"
 ARG PHASE_SRC=/opt
@@ -99,7 +100,7 @@ COPY --from=configurator ${PHASE_SRC} ${PHASE_SRC}
 COPY --chown=0:0 --chmod=755 ${SCRIPT_SRC} ${SCRIPT_DEST}
 
 RUN microdnf install -y ${BASE_PKGS} && \
-    rpm -ivh https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm && \
+    rpm -ivh https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm && \
     microdnf install -y tini && \
     # uncomment to fix vulnerability
     #microdnf update -y && \
